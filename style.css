@@ -563,6 +563,10 @@ main {
         linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 246, 239, 0.92));
 }
 
+.project-feature-secondary {
+    margin-top: 1.25rem;
+}
+
 .project-visual {
     display: flex;
     align-items: stretch;
@@ -595,6 +599,39 @@ main {
     align-content: end;
     justify-items: start;
     gap: 0.7rem;
+}
+
+.project-console {
+    width: 100%;
+    min-height: 100%;
+    border-radius: calc(var(--radius-xl) - 0.35rem);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background:
+        radial-gradient(circle at top left, rgba(162, 93, 63, 0.2), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(47, 111, 107, 0.16), transparent 30%),
+        linear-gradient(160deg, #18283c 0%, #23384f 50%, #112032 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.project-console-stage {
+    min-height: 22rem;
+    position: relative;
+    padding: 1.2rem;
+    display: grid;
+    align-content: end;
+    gap: 0.7rem;
+}
+
+.project-console-stage img {
+    width: 100%;
+    max-height: 22rem;
+    object-fit: contain;
+    object-position: top center;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(9, 17, 28, 0.55);
+    box-shadow: 0 20px 34px rgba(0, 0, 0, 0.2);
 }
 
 .fighter {
@@ -716,52 +753,6 @@ main {
 
 .project-tags {
     margin-top: 1.3rem;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-    margin-top: 1.25rem;
-}
-
-.project-card {
-    padding: 1.5rem;
-    background: rgba(255, 252, 246, 0.9);
-}
-
-.project-card-media {
-    margin: -0.25rem -0.25rem 1.25rem;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(24, 40, 60, 0.08);
-    box-shadow: var(--shadow-sm);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 230, 0.92));
-}
-
-.project-card-media img {
-    width: 100%;
-    height: auto;
-}
-
-.project-card-type {
-    margin: 0;
-    color: var(--teal);
-}
-
-.project-card h3 {
-    font-size: 1.55rem;
-    margin-top: 0.35rem;
-}
-
-.project-card-summary {
-    margin: 1rem 0 0;
-}
-
-.project-card-note {
-    margin: 0.85rem 0 0;
-    color: var(--ink-muted);
-    font-size: 0.98rem;
 }
 
 .experience-grid,
@@ -974,6 +965,14 @@ main {
 
     .project-stage {
         min-height: 18rem;
+    }
+
+    .project-console-stage {
+        min-height: 18rem;
+    }
+
+    .project-console-stage img {
+        max-height: 18rem;
     }
 }
 
