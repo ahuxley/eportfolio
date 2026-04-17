@@ -160,6 +160,17 @@ body {
     border-color: var(--text-main);
 }
 
+.btn-outline {
+    background: transparent;
+    color: var(--primary-glow);
+    border: 1px solid var(--primary-glow);
+}
+
+.btn-outline:hover {
+    background: rgba(216, 180, 254, 0.1);
+    color: white;
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -396,6 +407,29 @@ body {
     border-radius: 12px;
 }
 
+/* Project Reflection */
+.reflection {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+
+.reflection h4 {
+    font-size: 1.1rem;
+    color: var(--primary-glow);
+    margin-bottom: 0.8rem;
+}
+
+.reflection p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0 !important;
+    font-style: italic;
+}
+
 /* Contact Section */
 .contact-content {
     max-width: 1000px;
@@ -483,12 +517,41 @@ body {
     border-color: var(--primary-glow);
 }
 
+.resume-link {
+    background: rgba(107, 33, 168, 0.2);
+    border-color: var(--primary-glow);
+    font-weight: 600;
+}
+
 footer {
     text-align: center;
     padding: 3rem;
     color: var(--text-muted);
     border-top: 1px solid var(--glass-border);
     backdrop-filter: blur(10px);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-credits p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-credits a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.footer-credits a:hover {
+    text-decoration: underline;
 }
 
 /* Animations */
