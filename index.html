@@ -190,20 +190,23 @@
                         a custom Arduino Mega R3 controller using push buttons and an analog stick.
                     </p>
                     <p class="project-summary">
-                        To make the hardware work with the game, I created a Python program that bridged serial
-                        input from the controller into the game. That meant thinking through how hardware signals,
-                        software translation, and gameplay input all needed to work together smoothly.
+                        To make the hardware work with the game, I wrote a Python bridge that reads Arduino serial
+                        input, interprets button masks and analog stick values, and converts them into player
+                        controls that the game can use. The script maps inputs for two players, handles analog
+                        deadzones, and can send both Windows keyboard events and UDP messages for integration.
                     </p>
                     <ul class="project-highlights">
                         <li>Built gameplay in Godot for a local two-player fighting experience</li>
                         <li>Helped create a custom Arduino Mega R3 controller with push buttons and an analog stick</li>
-                        <li>Wrote a Python bridge to convert serial controller data into usable game input</li>
+                        <li>Wrote a Python bridge that parses serial payloads, maps player actions, and translates hardware input into usable game controls</li>
                     </ul>
                     <ul class="tag-list project-tags">
                         <li>Godot</li>
                         <li>Python</li>
                         <li>Arduino Mega R3</li>
                         <li>Serial Communication</li>
+                        <li>Input Mapping</li>
+                        <li>UDP</li>
                         <li>Game Development</li>
                         <li>Hardware Integration</li>
                     </ul>
