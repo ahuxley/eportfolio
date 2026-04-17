@@ -2,6 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("mobile-menu-btn");
     const navLinks = document.getElementById("site-menu");
     const navLinkItems = navLinks ? Array.from(navLinks.querySelectorAll("a")) : [];
+    const sectionLinks = navLinkItems
+        .map((link) => {
+            const targetId = link.getAttribute("href");
+            if (!targetId || !targetId.startsWith("#")) {
+                return null;
+            }
+
+            const section = document.querySelector(targetId);
+            if (!section) {
+                return null;
+            }
+
+            return { link, section };
+        })
+        .filter(Boolean);
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function closeMenu() {
@@ -60,6 +75,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 closeMenu();
             }
         });
+    }
+
+    if (sectionLinks.length) {
+        const setActiveLink = (activeId) => {
+            sectionLinks.forEach(({ link, section }) => {
+                const isActive = `#${section.id}` === activeId;
+                link.classList.toggle("is-active", isActive);
+
+                if (isActive) {
+                    link.setAttribute("aria-current", "page");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            });
+        };
+
+        setActiveLink("#about");
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            const visibleEntries = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (!visibleEntries.length) {
+                return;
+            }
+
+            setActiveLink(`#${visibleEntries[0].target.id}`);
+        }, {
+            rootMargin: "-35% 0px -45% 0px",
+            threshold: [0.15, 0.3, 0.6]
+        });
+
+        sectionLinks.forEach(({ section }) => sectionObserver.observe(section));
     }
 
     const reveals = document.querySelectorAll("[data-reveal]");
