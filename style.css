@@ -624,26 +624,34 @@ main {
     gap: 0.85rem;
 }
 
-.project-console-stage img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: left top;
+.project-console-gallery {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.project-console-shot {
+    margin: 0;
+    overflow: hidden;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(9, 17, 28, 0.55);
     box-shadow: 0 20px 34px rgba(0, 0, 0, 0.2);
 }
 
-.project-console-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+.project-console-shot img {
+    width: 100%;
+    height: auto;
 }
 
-.project-feature-secondary .project-ui-chip {
-    background: rgba(255, 248, 240, 0.1);
-    border-color: rgba(255, 248, 240, 0.12);
+.project-console-shot figcaption {
+    padding: 0.7rem 0.95rem 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff8f0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, rgba(255, 248, 240, 0.08), rgba(255, 248, 240, 0.04));
 }
 
 .fighter {
@@ -983,9 +991,6 @@ main {
         min-height: auto;
     }
 
-    .project-console-stage img {
-        aspect-ratio: 16 / 10;
-    }
 }
 
 @media (max-width: 840px) {
