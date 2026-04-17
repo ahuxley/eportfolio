@@ -3,200 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew Huxley | Eportfolio</title>
+    <title>Andrew Huxley | Computer Science & IT Portfolio</title>
+    <meta name="description" content="Experience-first portfolio for Andrew Huxley, a Computer Science student focused on IT support, analytics, and process improvement.">
+    <meta name="theme-color" content="#17324d">
+    <meta name="formspree-endpoint" content="">
+    <meta property="og:title" content="Andrew Huxley | Computer Science & IT Portfolio">
+    <meta property="og:description" content="Computer Science student with hands-on experience in IT support, analytics, operations, and project coordination.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahuxley.github.io/eportfolio/">
+    <meta property="og:image" content="https://ahuxley.github.io/eportfolio/assets/social-preview.png">
+    <meta property="og:image:alt" content="Andrew Huxley portfolio preview">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Andrew Huxley | Computer Science & IT Portfolio">
+    <meta name="twitter:description" content="Experience-first portfolio focused on IT support, analytics, and dependable execution.">
+    <meta name="twitter:image" content="https://ahuxley.github.io/eportfolio/assets/social-preview.png">
+    <link rel="canonical" href="https://ahuxley.github.io/eportfolio/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="blob-bg blob-1"></div>
-    <div class="blob-bg blob-2"></div>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <nav class="navbar">
-        <a href="#" class="logo">Portfo<span>lio</span></a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="menu-btn" id="mobile-menu-btn">&#9776;</button>
-    </nav>
+    <div class="page-glow page-glow-left" aria-hidden="true"></div>
+    <div class="page-glow page-glow-right" aria-hidden="true"></div>
+    <div class="page-grid" aria-hidden="true"></div>
 
-    <header class="hero" id="home">
-        <div class="hero-content fade-in">
-            <h2 class="subtitle">Computer Science & IT Professional</h2>
-            <h1 class="title">Hi, I'm <span class="highlight">Andrew Huxley</span></h1>
-            <p class="description">
-                Computer Science student with hands-on experience in IT support, project coordination, and data analysis. I have a proven ability to organize teams, analyze processes, and maintain accurate documentation.
-            </p>
-            <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                <a href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Download Resume</a>
-            </div>
-        </div>
-        <div class="hero-image fade-in-right">
-            <div class="glass-panel">
-                <img src="assets/profile.png" alt="Profile avatar" id="profile-img">
-            </div>
-        </div>
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Primary">
+            <a class="brand" href="#top" aria-label="Andrew Huxley home">
+                <span class="brand-mark">AH</span>
+                <span class="brand-copy">
+                    <span class="brand-name">Andrew Huxley</span>
+                    <span class="brand-role">Computer Science & IT</span>
+                </span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="mobile-menu-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-menu"
+                aria-label="Toggle navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="site-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#toolkit">Toolkit</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="about section-padding" id="about">
-        <div class="section-title-wrap slide-up">
-            <h2 class="section-title">About Me</h2>
-            <div class="title-underline"></div>
-        </div>
-        <div class="about-grid">
-            <div class="about-text glass-card slide-up">
-                <p>Hello! I am a Computer Science student at the University of Michigan – Flint (Expected Graduation: April 2028), actively seeking an internship or entry-level role in Computer Science, IT, or Data Analytics.</p>
-                <p>Beyond my academic studies, I hold a Google IT Support Professional Certificate and a University of Colorado Boulder Project Management Specialization. My professional background spans customer-facing operations and technical troubleshooting, giving me a unique perspective on user-centric problem-solving.</p>
-                <p>I am also deeply committed to giving back to my local community. I actively volunteer with Feeding America and have served as a Judge for the Flint Regional Science and Engineering Fair.</p>
+    <main id="main-content">
+        <section class="hero section-shell">
+            <div class="hero-copy" data-reveal="up">
+                <p class="eyebrow">Open to internships and entry-level opportunities</p>
+                <h1>Dependable technical support, thoughtful analysis, and calm execution.</h1>
+                <p class="hero-lead">
+                    Andrew Huxley is a Computer Science student at the University of Michigan-Flint building
+                    a foundation in IT support, operations, analytics, and project coordination.
+                </p>
+                <p class="hero-body">
+                    His experience spans customer-facing service, data-informed workflow improvement, and
+                    process documentation that helps teams stay clear, accurate, and responsive.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#experience">Explore Experience</a>
+                    <a class="button button-secondary" href="https://github.com/ahuxley" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                    <a class="button button-tertiary" href="#contact">Get in Touch</a>
+                </div>
+                <ul class="hero-proof" aria-label="Key highlights">
+                    <li>Expected graduation: April 2028</li>
+                    <li>Google IT Support Certificate</li>
+                    <li>Top 10% regional ranking at AAA</li>
+                </ul>
             </div>
-            <div class="stats glass-card slide-up delay-1">
-                <div class="stat">
-                    <h3 class="stat-number" data-target="5">0</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat">
-                    <h3 class="stat-number" data-target="2">0</h3>
-                    <p>Professional Certifications</p>
-                </div>
-                <div class="stat">
-                    <h3 class="stat-number" data-target="10">0</h3>
-                    <p>Top 10% Regional Rank (AAA)</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="skills section-padding" id="skills">
-        <div class="section-title-wrap slide-up">
-            <h2 class="section-title">My Toolkit</h2>
-            <div class="title-underline"></div>
-        </div>
-        <div class="skills-container glass-card slide-up">
-            <div class="skill-tag">Python & C++</div>
-            <div class="skill-tag">R Programming</div>
-            <div class="skill-tag">Hardware Troubleshooting</div>
-            <div class="skill-tag">Networking Fundamentals</div>
-            <div class="skill-tag">Operating Systems</div>
-            <div class="skill-tag">Salesforce CRM</div>
-            <div class="skill-tag">Data Analytics</div>
-            <div class="skill-tag">Project Management</div>
-        </div>
-    </section>
+            <aside class="hero-panel" data-reveal="left" aria-label="Profile summary">
+                <div class="portrait-frame">
+                    <img src="assets/profile.webp" alt="Portrait of Andrew Huxley" width="720" height="720">
+                </div>
+                <div class="profile-card">
+                    <p class="profile-label">Current focus</p>
+                    <h2>Computer Science student with an IT and operations mindset.</h2>
+                    <ul class="profile-list">
+                        <li>Based in Michigan and interested in practical, people-centered technical work</li>
+                        <li>Comfortable translating process issues into clear action and documentation</li>
+                        <li>Building toward careers in IT support, analytics, and software-adjacent operations</li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
 
-    <section class="projects section-padding" id="projects">
-        <div class="section-title-wrap slide-up">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="title-underline"></div>
-        </div>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card glass-card slide-up">
-                <div class="img-wrapper">
-                    <img src="assets/proj1.png" alt="AAA Auto Club Group" class="proj-img-1" id="proj-img-1">
-                </div>
-                <div class="project-info">
-                    <h3>AAA Auto Club Group</h3>
-                    <p>Regional Insurance Specialist. Analyzed performance data to identify inefficiencies and improved workflows, resulting in a top 10% regional ranking.</p>
-                    <div class="project-tech">
-                        <span>Data Analytics</span>
-                        <span>Workflow Optimization</span>
-                        <span>Reporting</span>
-                    </div>
-                    <div class="reflection">
-                        <h4>Reflection</h4>
-                        <p>Working at AAA required me to bridge the gap between complex data analytics and frontline customer service. By organizing cross-functional teams and creating detailed performance reports, I learned how data-driven decisions directly impact business compliance and efficiency. This experience reinforced my desire to pursue a career combining Data Analytics and IT coordination.</p>
-                    </div>
-                </div>
+        <section class="section-shell section-stack" id="about">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">About</p>
+                <h2>Grounded in service, sharpened by process, motivated by technology.</h2>
+                <p>
+                    Andrew combines technical curiosity with frontline experience. That mix shows up in how he
+                    approaches troubleshooting, communication, and systems that have to work for real people.
+                </p>
             </div>
-            <!-- Project 2 -->
-            <div class="project-card glass-card slide-up delay-1">
-                <div class="img-wrapper">
-                    <img src="assets/proj2.png" alt="State Farm" class="proj-img-2" id="proj-img-2">
-                </div>
-                <div class="project-info">
-                    <h3>State Farm</h3>
-                    <p>Insurance Agent. Managed commercial accounts utilizing Salesforce CRM and data analytics to mitigate risks and maintain compliance.</p>
-                    <div class="project-tech">
-                        <span>Salesforce CRM</span>
-                        <span>Risk Analytics</span>
-                        <span>Compliance</span>
-                    </div>
-                    <div class="reflection">
-                        <h4>Reflection</h4>
-                        <p>My time at State Farm built my technical proficiency with enterprise tools like Salesforce CRM. Managing high-stakes accounts taught me the critical importance of data accuracy and strict regulatory compliance. These foundational skills in software support and process improvement directly translate to my ongoing Computer Science studies and future software roles.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card glass-card slide-up delay-2">
-                <div class="img-wrapper">
-                    <img src="assets/proj3.png" alt="Starbucks" class="proj-img-3" id="proj-img-3">
-                </div>
-                <div class="project-info">
-                    <h3>Starbucks</h3>
-                    <p>Barista & Operations. Communicated task assignments, assisted with inventory management, and resolved service issues to optimize workflow during peak hours.</p>
-                    <div class="project-tech">
-                        <span>Operations</span>
-                        <span>Customer Support</span>
-                        <span>Team Management</span>
-                    </div>
-                    <div class="reflection">
-                        <h4>Reflection</h4>
-                        <p>Handling dynamic, high-volume environments at Starbucks instilled a strong sense of teamwork and rapid problem-solving. This role demonstrated my ability to troubleshoot systems on the fly and manage interpersonal challenges successfully. The soft skills refined here are essential for any successful IT Helpdesk or technical environment.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="contact section-padding" id="contact">
-        <div class="section-title-wrap slide-up">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="title-underline"></div>
-        </div>
-        <div class="contact-content glass-card slide-up">
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="example@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
-            </form>
-            <div class="contact-info">
-                <h3>Reach Out Directly</h3>
-                <p>Email: <a href="mailto:drewhuxley01@gmail.com" class="highlight-link">drewhuxley01@gmail.com</a></p>
-                <p>Phone: (231) 493-8459</p>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;">Location: Grand Blanc, MI</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/andrewhuxley/" class="social-icon" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://github.com/ahuxley" class="social-icon" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="#" class="social-icon resume-link">Resume (PDF)</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="about-grid">
+                <article class="story-card" data-reveal="up">
+                    <p>
+                        He is currently studying Computer Science at the University of Michigan-Flint and is
+                        actively developing the technical depth needed for IT support, analytics, and early-career
+                        software environments.
+                    </p>
+                    <p>
+                        Beyond coursework, his background includes customer-facing operations, process reporting,
+                        and accountability in regulated environments. That experience shaped a steady working style:
+                        organized, practical, and focused on follow-through.
+                    </p>
+                    <p>
+                        Community involvement matters too. Andrew has volunteered with Feeding America and served
+                        as a judge for the Flint Regional Science and Engineering Fair, reinforcing a commitment to
+                        service and local impact.
+                    </p>
+                </article>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 Andrew Huxley. Built with precision and passion.</p>
-            <div class="footer-credits">
-                <p><strong>Credits & References:</strong> All design concepts and code structured to support the central message of user-centered design. High-quality placeholder images generated via AI models (Antigravity). Fonts provided by <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a>.</p>
+                <div class="metric-grid">
+                    <article class="metric-card" data-reveal="up">
+                        <p class="metric-label">Graduation target</p>
+                        <p class="metric-value" data-count="2028">2028</p>
+                        <p class="metric-note">Expected completion of Computer Science degree</p>
+                    </article>
+                    <article class="metric-card" data-reveal="up">
+                        <p class="metric-label">Professional certificates</p>
+                        <p class="metric-value" data-count="2">2</p>
+                        <p class="metric-note">Google IT Support and project management specialization</p>
+                    </article>
+                    <article class="metric-card" data-reveal="up">
+                        <p class="metric-label">Regional performance</p>
+                        <p class="metric-value" data-count="10" data-suffix="%">10%</p>
+                        <p class="metric-note">Top 10% ranking achieved at AAA Auto Club Group</p>
+                    </article>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="section-shell section-stack" id="experience">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Experience</p>
+                <h2>Professional experience that translates into dependable technical work.</h2>
+                <p>
+                    This portfolio centers on the real environments Andrew has worked in: settings where accuracy,
+                    responsiveness, and clear communication matter every day.
+                </p>
+            </div>
+
+            <div class="experience-grid">
+                <article class="experience-card" data-reveal="up">
+                    <div class="experience-image">
+                        <img src="assets/experience-aaa.webp" alt="Abstract visual representing analytics and workflow reporting for AAA Auto Club Group" width="720" height="720">
+                    </div>
+                    <div class="experience-body">
+                        <p class="experience-meta">AAA Auto Club Group</p>
+                        <h3>Regional Insurance Specialist</h3>
+                        <p>
+                            Analyzed performance data, identified inefficiencies, and helped improve workflows in a
+                            high-accountability environment, contributing to a top 10% regional ranking.
+                        </p>
+                        <ul class="experience-points">
+                            <li>Used reporting and operational insight to surface process gaps</li>
+                            <li>Supported cross-functional coordination around compliance and efficiency</li>
+                            <li>Strengthened confidence in data-backed decision making</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="experience-card" data-reveal="up">
+                    <div class="experience-image">
+                        <img src="assets/experience-state-farm.webp" alt="Abstract visual representing CRM systems, commercial accounts, and risk review for State Farm" width="720" height="720">
+                    </div>
+                    <div class="experience-body">
+                        <p class="experience-meta">State Farm</p>
+                        <h3>Insurance Agent</h3>
+                        <p>
+                            Managed commercial accounts using Salesforce CRM and data analysis to support risk
+                            mitigation, documentation quality, and policy compliance.
+                        </p>
+                        <ul class="experience-points">
+                            <li>Worked with enterprise tooling in a detail-sensitive setting</li>
+                            <li>Built habits around data accuracy and accountable communication</li>
+                            <li>Gained practical experience balancing systems and client needs</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="experience-card" data-reveal="up">
+                    <div class="experience-image">
+                        <img src="assets/experience-starbucks.webp" alt="Abstract visual representing fast-paced operations, team coordination, and customer support at Starbucks" width="720" height="720">
+                    </div>
+                    <div class="experience-body">
+                        <p class="experience-meta">Starbucks</p>
+                        <h3>Barista & Operations</h3>
+                        <p>
+                            Helped keep fast-moving operations stable by coordinating tasks, supporting inventory
+                            needs, and resolving customer issues under pressure.
+                        </p>
+                        <ul class="experience-points">
+                            <li>Practiced calm execution in high-volume environments</li>
+                            <li>Improved task coordination and team communication</li>
+                            <li>Built customer support instincts that translate well to helpdesk work</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="toolkit">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Toolkit</p>
+                <h2>Technical strengths built around support, systems, and analysis.</h2>
+                <p>
+                    Andrew’s toolkit reflects where he is strongest today: foundational programming, IT support
+                    knowledge, data awareness, and clear operational communication.
+                </p>
+            </div>
+
+            <div class="toolkit-grid">
+                <article class="toolkit-card" data-reveal="up">
+                    <p class="toolkit-label">Programming & data</p>
+                    <h3>Problem solving with structure.</h3>
+                    <ul class="tag-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>R Programming</li>
+                        <li>Data Analytics</li>
+                        <li>Reporting</li>
+                    </ul>
+                </article>
+                <article class="toolkit-card" data-reveal="up">
+                    <p class="toolkit-label">IT & systems</p>
+                    <h3>Practical support fundamentals.</h3>
+                    <ul class="tag-list">
+                        <li>Hardware Troubleshooting</li>
+                        <li>Networking Fundamentals</li>
+                        <li>Operating Systems</li>
+                        <li>Technical Documentation</li>
+                        <li>End-user Support</li>
+                    </ul>
+                </article>
+                <article class="toolkit-card" data-reveal="up">
+                    <p class="toolkit-label">Coordination & delivery</p>
+                    <h3>Clear communication under real constraints.</h3>
+                    <ul class="tag-list">
+                        <li>Project Management</li>
+                        <li>Workflow Improvement</li>
+                        <li>Salesforce CRM</li>
+                        <li>Customer Communication</li>
+                        <li>Team Coordination</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="credentials">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Credentials</p>
+                <h2>Certifications and community involvement that reinforce the work.</h2>
+                <p>
+                    Formal credentials and volunteer work support the same throughline: learning consistently,
+                    staying useful, and showing up well for other people.
+                </p>
+            </div>
+
+            <div class="credential-grid">
+                <article class="credential-card" data-reveal="up">
+                    <p class="credential-label">Certification</p>
+                    <h3>Google IT Support Professional Certificate</h3>
+                    <p>
+                        Built foundational confidence in troubleshooting, systems thinking, networking basics,
+                        and user-focused support practices.
+                    </p>
+                </article>
+                <article class="credential-card" data-reveal="up">
+                    <p class="credential-label">Specialization</p>
+                    <h3>University of Colorado Boulder Project Management</h3>
+                    <p>
+                        Strengthened planning, prioritization, communication, and execution habits that carry well
+                        into technical and cross-functional work.
+                    </p>
+                </article>
+                <article class="credential-card" data-reveal="up">
+                    <p class="credential-label">Community</p>
+                    <h3>Feeding America Volunteer & Science Fair Judge</h3>
+                    <p>
+                        Contributed locally through service and mentorship-oriented involvement in the Flint
+                        community.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="github">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">GitHub</p>
+                <h2>A growing public footprint that supports the story without overstating it.</h2>
+                <p>
+                    Andrew’s GitHub is still early-stage, but it already shows an interest in building in public
+                    and exploring technical tools over time.
+                </p>
+            </div>
+
+            <div class="github-grid">
+                <article class="github-summary" data-reveal="up">
+                    <p class="github-summary-label">Public profile snapshot</p>
+                    <h3>Selected public activity includes this portfolio and a few learning-oriented repos.</h3>
+                    <p>
+                        Rather than presenting a deep project catalog that does not exist yet, this site treats
+                        GitHub as supporting proof of curiosity, follow-through, and momentum.
+                    </p>
+                    <div class="github-actions">
+                        <a class="button button-primary" href="https://github.com/ahuxley" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+                        <a class="button button-secondary" href="https://github.com/ahuxley/eportfolio" target="_blank" rel="noopener noreferrer">Open This Repo</a>
+                    </div>
+                </article>
+
+                <div class="github-list">
+                    <article class="repo-card" data-reveal="up">
+                        <p class="repo-type">Portfolio</p>
+                        <h3>eportfolio</h3>
+                        <p>This public GitHub Pages site documents Andrew’s current professional story.</p>
+                    </article>
+                    <article class="repo-card" data-reveal="up">
+                        <p class="repo-type">Exploration</p>
+                        <h3>Scrapling</h3>
+                        <p>Public fork used to explore adaptive web scraping concepts and tooling.</p>
+                    </article>
+                    <article class="repo-card" data-reveal="up">
+                        <p class="repo-type">Exploration</p>
+                        <h3>self-hosted-ai-starter-kit</h3>
+                        <p>Public fork reflecting interest in local AI environments and workflow tooling.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="contact">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Contact</p>
+                <h2>Reach out for internships, entry-level roles, or thoughtful technical collaboration.</h2>
+                <p>
+                    The fastest way to connect is by email or LinkedIn. The form below supports Formspree and
+                    gracefully falls back to opening an email draft when no endpoint is configured.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <article class="contact-card" data-reveal="up">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button class="button button-primary submit-button" type="submit">
+                            <span class="button-label">Send Message</span>
+                        </button>
+                        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </article>
+
+                <aside class="contact-panel" data-reveal="up">
+                    <article class="contact-method">
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:drewhuxley01@gmail.com">drewhuxley01@gmail.com</a>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/andrewhuxley/" target="_blank" rel="noopener noreferrer">linkedin.com/in/andrewhuxley</a>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">GitHub</p>
+                        <a href="https://github.com/ahuxley" target="_blank" rel="noopener noreferrer">github.com/ahuxley</a>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">Availability</p>
+                        <p>Seeking internships and entry-level roles in IT support, analytics, and technical operations.</p>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">Location</p>
+                        <p>Michigan, United States</p>
+                    </article>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Andrew Huxley portfolio, built as a fast static site for GitHub Pages.</p>
+        <p>&copy; 2026 Andrew Huxley. Clear systems, dependable support, and steady growth.</p>
     </footer>
 
     <script src="script.js"></script>

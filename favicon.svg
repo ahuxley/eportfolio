@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Andrew Huxley favicon</title>
+  <desc id="desc">Monogram AH on a dark blue rounded square</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17324d"/>
+      <stop offset="100%" stop-color="#2f7c78"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bg)"/>
+  <path d="M34 88 52 40h8l18 48h-9.2l-3.8-11H46.8L43 88Zm15.6-18h12.6L56 51.6ZM80.5 40h8.8v18.5h17V40h8.7v48h-8.7V66.2h-17V88h-8.8Z" fill="#fff8f0"/>
+</svg>

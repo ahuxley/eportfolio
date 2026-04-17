@@ -1,80 +1,214 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const navLinks = document.getElementById("site-menu");
+    const navLinkItems = navLinks ? Array.from(navLinks.querySelectorAll("a")) : [];
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    /* --- Mobile Menu Toggle --- */
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    function closeMenu() {
+        if (!menuBtn || !navLinks) {
+            return;
+        }
 
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        menuBtn.setAttribute("aria-expanded", "false");
+        navLinks.classList.remove("is-open");
+    }
+
+    function openMenu() {
+        if (!menuBtn || !navLinks) {
+            return;
+        }
+
+        menuBtn.setAttribute("aria-expanded", "true");
+        navLinks.classList.add("is-open");
+    }
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener("click", () => {
+            const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        navLinkItems.forEach((link) => {
+            link.addEventListener("click", () => {
+                closeMenu();
+            });
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!navLinks.classList.contains("is-open")) {
+                return;
+            }
+
+            if (!navLinks.contains(event.target) && !menuBtn.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMenu();
+                menuBtn.focus();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 840) {
+                closeMenu();
+            }
         });
     }
 
-    /* --- Smooth Scrolling for Anchor Links --- */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            navLinks.classList.remove('active'); // Close mobile menu if open
-
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Offset for fixed navbar
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    /* --- Scroll Animations (Intersection Observer) --- */
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // Trigger number counter if it's the stats section
-                if (entry.target.classList.contains('stats') && !entry.target.classList.contains('counted')) {
-                    startCounters();
-                    entry.target.classList.add('counted');
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if (reduceMotion) {
+        reveals.forEach((element) => element.classList.add("is-visible"));
+    } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
                 }
-                
+
+                entry.target.classList.add("is-visible");
                 observer.unobserve(entry.target);
-            }
+            });
+        }, {
+            threshold: 0.18
         });
-    }, observerOptions);
 
-    const animElements = document.querySelectorAll('.fade-in, .slide-up, .fade-in-right');
-    animElements.forEach(el => observer.observe(el));
-
-    /* --- Number Counter Animation --- */
-    function startCounters() {
-        const counters = document.querySelectorAll('.stat-number');
-        const speed = 200; // lower = faster
-
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 15);
-                } else {
-                    counter.innerText = target + (target > 50 ? '+' : '+'); // Add '+' to large numbers
-                }
-            };
-            updateCount();
-        });
+        reveals.forEach((element) => revealObserver.observe(element));
     }
 
+    const counters = document.querySelectorAll(".metric-value[data-count]");
+    const counterState = new WeakSet();
+
+    function animateCounter(counter) {
+        if (counterState.has(counter)) {
+            return;
+        }
+
+        counterState.add(counter);
+        const target = Number(counter.dataset.count || 0);
+        const suffix = counter.dataset.suffix || "";
+        const duration = 1200;
+        const start = performance.now();
+
+        function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(target * eased);
+            counter.textContent = `${value}${suffix}`;
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                counter.textContent = `${target}${suffix}`;
+            }
+        }
+
+        window.requestAnimationFrame(step);
+    }
+
+    if (reduceMotion) {
+        counters.forEach((counter) => {
+            counter.textContent = `${counter.dataset.count}${counter.dataset.suffix || ""}`;
+        });
+    } else if (counters.length) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.65
+        });
+
+        counters.forEach((counter) => counterObserver.observe(counter));
+    }
+
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    const formButton = form ? form.querySelector(".submit-button") : null;
+    const formButtonLabel = formButton ? formButton.querySelector(".button-label") : null;
+    const endpointMeta = document.querySelector('meta[name="formspree-endpoint"]');
+    const endpoint = endpointMeta ? endpointMeta.content.trim() : "";
+
+    function setStatus(message, type = "") {
+        if (!status) {
+            return;
+        }
+
+        status.textContent = message;
+        status.classList.remove("is-success", "is-error");
+
+        if (type) {
+            status.classList.add(type);
+        }
+    }
+
+    function setSubmitting(isSubmitting) {
+        if (!formButton || !formButtonLabel) {
+            return;
+        }
+
+        formButton.disabled = isSubmitting;
+        formButton.setAttribute("aria-busy", String(isSubmitting));
+        formButtonLabel.textContent = isSubmitting ? "Sending..." : "Send Message";
+    }
+
+    if (form) {
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            setStatus("");
+
+            if (!form.reportValidity()) {
+                setStatus("Please complete all required fields before sending.", "is-error");
+                return;
+            }
+
+            const data = new FormData(form);
+            const name = String(data.get("name") || "").trim();
+            const email = String(data.get("email") || "").trim();
+            const message = String(data.get("message") || "").trim();
+
+            if (!endpoint) {
+                const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+                const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+                setStatus("Opening your email app because the form endpoint is not configured yet.");
+                window.location.href = `mailto:drewhuxley01@gmail.com?subject=${subject}&body=${body}`;
+                form.reset();
+                return;
+            }
+
+            setSubmitting(true);
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json"
+                    },
+                    body: data
+                });
+
+                if (!response.ok) {
+                    throw new Error("Submission failed");
+                }
+
+                form.reset();
+                setStatus("Thanks for reaching out. Your message has been sent.", "is-success");
+            } catch (error) {
+                setStatus("The message could not be sent right now. Please try the direct email link instead.", "is-error");
+            } finally {
+                setSubmitting(false);
+            }
+        });
+    }
 });
