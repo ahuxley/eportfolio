@@ -1,0 +1,89 @@
+name: Deploy Public Pages Mirror
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: ${{ vars.PUBLIC_PAGES_REPO != '' && secrets.PUBLIC_PAGES_TOKEN != '' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+
+      - name: Prepare static site payload
+        shell: bash
+        env:
+          PUBLIC_PAGES_REPO: ${{ vars.PUBLIC_PAGES_REPO }}
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+        run: |
+          set -euo pipefail
+          mkdir -p .site-dist/assets
+          cp index.html style.css script.js favicon.svg .site-dist/
+          cp -R assets/. .site-dist/assets/
+          touch .site-dist/.nojekyll
+
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          repo = os.environ["PUBLIC_PAGES_REPO"].strip()
+          explicit = os.environ.get("PUBLIC_SITE_URL", "").strip().rstrip("/")
+          owner, repo_name = repo.split("/", 1)
+
+          if explicit:
+              site_url = explicit
+          elif repo_name.lower() == f"{owner.lower()}.github.io":
+              site_url = f"https://{owner}.github.io"
+          else:
+              site_url = f"https://{owner}.github.io/{repo_name}"
+
+          html_path = Path(".site-dist/index.html")
+          html = html_path.read_text(encoding="utf-8")
+          replacements = {
+              "https://ahuxley.github.io/eportfolio/": site_url + "/",
+              "https://ahuxley.github.io/eportfolio/assets/social-preview.png": f"{site_url}/assets/social-preview.png",
+          }
+          for old, new in replacements.items():
+              html = html.replace(old, new)
+
+          html_path.write_text(html, encoding="utf-8")
+          print(f"Using deployment URL: {site_url}/")
+          PY
+
+      - name: Publish to public Pages repository
+        shell: bash
+        env:
+          PUBLIC_PAGES_REPO: ${{ vars.PUBLIC_PAGES_REPO }}
+          PUBLIC_PAGES_BRANCH: ${{ vars.PUBLIC_PAGES_BRANCH != '' && vars.PUBLIC_PAGES_BRANCH || 'main' }}
+          PUBLIC_PAGES_TOKEN: ${{ secrets.PUBLIC_PAGES_TOKEN }}
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch "$PUBLIC_PAGES_BRANCH" "https://x-access-token:${PUBLIC_PAGES_TOKEN}@github.com/${PUBLIC_PAGES_REPO}.git" .public-pages
+
+          if [ -f .public-pages/CNAME ] && [ ! -f .site-dist/CNAME ]; then
+            cp .public-pages/CNAME .site-dist/CNAME
+          fi
+
+          find .public-pages -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -R .site-dist/. .public-pages/
+
+          cd .public-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No deployment changes to publish."
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "Deploy from source repo ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
+          git push origin "$PUBLIC_PAGES_BRANCH"
