@@ -56,6 +56,7 @@
 
             <ul class="nav-links" id="site-menu">
                 <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#toolkit">Toolkit</a></li>
                 <li><a href="#credentials">Credentials</a></li>
@@ -153,6 +154,61 @@
                     </article>
                 </div>
             </div>
+        </section>
+
+        <section class="section-shell section-stack" id="projects">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Projects</p>
+                <h2>Projects that show how I like to build across software and hardware.</h2>
+                <p>
+                    I enjoy projects that connect code to a real interaction. MicroFighter is one of the clearest
+                    examples because it pushed me to think about game logic, hardware input, and system integration
+                    at the same time.
+                </p>
+            </div>
+
+            <article class="project-feature" data-reveal="up">
+                <div class="project-visual" aria-hidden="true">
+                    <div class="project-screen">
+                        <div class="project-screen-bar"></div>
+                        <div class="project-stage">
+                            <div class="fighter fighter-left"></div>
+                            <div class="fighter fighter-right"></div>
+                            <div class="project-ui-chip">2D Fighter</div>
+                            <div class="project-ui-chip">Custom Controller</div>
+                            <div class="project-ui-chip">Python Bridge</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-copy">
+                    <p class="project-label">Featured Project</p>
+                    <h3>MicroFighter</h3>
+                    <p class="project-summary">
+                        MicroFighter is a 2D two-player fighting game that I built in Godot. What made the
+                        project especially interesting was that we did not stop at the game itself. We also built
+                        a custom Arduino Mega R3 controller using push buttons and an analog stick.
+                    </p>
+                    <p class="project-summary">
+                        To make the hardware work with the game, I created a Python program that bridged serial
+                        input from the controller into the game. That meant thinking through how hardware signals,
+                        software translation, and gameplay input all needed to work together smoothly.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>Built gameplay in Godot for a local two-player fighting experience</li>
+                        <li>Helped create a custom Arduino Mega R3 controller with push buttons and an analog stick</li>
+                        <li>Wrote a Python bridge to convert serial controller data into usable game input</li>
+                    </ul>
+                    <ul class="tag-list project-tags">
+                        <li>Godot</li>
+                        <li>Python</li>
+                        <li>Arduino Mega R3</li>
+                        <li>Serial Communication</li>
+                        <li>Game Development</li>
+                        <li>Hardware Integration</li>
+                    </ul>
+                </div>
+            </article>
         </section>
 
         <section class="section-shell section-stack" id="experience">

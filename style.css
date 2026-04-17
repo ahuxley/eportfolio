@@ -262,6 +262,7 @@ main {
 .hero-copy h1,
 .section-heading h2,
 .profile-card h2,
+.project-feature h3,
 .toolkit-card h3,
 .credential-card h3,
 .github-summary h3,
@@ -487,6 +488,166 @@ main {
     margin: 0;
 }
 
+.project-feature {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 1.4rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.56);
+    background: var(--surface);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-visual {
+    display: flex;
+    align-items: stretch;
+}
+
+.project-screen {
+    width: 100%;
+    min-height: 100%;
+    border-radius: calc(var(--radius-xl) - 0.35rem);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background:
+        radial-gradient(circle at top left, rgba(189, 94, 53, 0.3), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(47, 124, 120, 0.34), transparent 34%),
+        linear-gradient(160deg, #17324d 0%, #214564 45%, #10263b 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.project-screen-bar {
+    height: 1.2rem;
+    background: rgba(255, 248, 240, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-stage {
+    min-height: 22rem;
+    position: relative;
+    padding: 1.5rem;
+    display: grid;
+    align-content: end;
+    justify-items: start;
+    gap: 0.7rem;
+}
+
+.fighter {
+    position: absolute;
+    bottom: 4.2rem;
+    width: 4.7rem;
+    height: 8.5rem;
+    border-radius: 1.2rem 1.2rem 0.8rem 0.8rem;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.fighter::before,
+.fighter::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+}
+
+.fighter::before {
+    width: 3rem;
+    height: 3rem;
+    top: -1.7rem;
+    left: 0.85rem;
+    border-radius: 50%;
+}
+
+.fighter::after {
+    width: 7.2rem;
+    height: 0.45rem;
+    left: -1.25rem;
+    bottom: -1.05rem;
+    border-radius: 999px;
+    background: rgba(255, 248, 240, 0.16);
+}
+
+.fighter-left {
+    left: 2rem;
+    background: linear-gradient(180deg, #f0a15b 0%, #bd5e35 100%);
+    transform: skew(-4deg);
+}
+
+.fighter-right {
+    right: 2.2rem;
+    background: linear-gradient(180deg, #78c3b3 0%, #2f7c78 100%);
+    transform: scaleX(-1) skew(-4deg);
+}
+
+.project-ui-chip {
+    position: relative;
+    z-index: 1;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 248, 240, 0.12);
+    border: 1px solid rgba(255, 248, 240, 0.16);
+    color: #fff8f0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-copy {
+    display: grid;
+    align-content: start;
+}
+
+.project-label {
+    margin: 0;
+    color: var(--accent-strong);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.project-feature h3 {
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    margin-top: 0.35rem;
+}
+
+.project-summary {
+    color: var(--ink-soft);
+    margin: 1rem 0 0;
+}
+
+.project-highlights {
+    list-style: none;
+    margin: 1.2rem 0 0;
+    padding: 0;
+}
+
+.project-highlights li {
+    position: relative;
+    padding-left: 1rem;
+    color: var(--ink-soft);
+}
+
+.project-highlights li + li {
+    margin-top: 0.7rem;
+}
+
+.project-highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.project-tags {
+    margin-top: 1.3rem;
+}
+
 .experience-grid,
 .toolkit-grid,
 .credential-grid {
@@ -692,6 +853,7 @@ main {
 
 @media (max-width: 1080px) {
     .hero,
+    .project-feature,
     .about-grid,
     .github-grid,
     .contact-grid {
@@ -706,6 +868,10 @@ main {
 
     .hero-copy h1 {
         max-width: none;
+    }
+
+    .project-stage {
+        min-height: 18rem;
     }
 }
 
