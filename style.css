@@ -730,6 +730,20 @@ main {
     background: rgba(255, 252, 246, 0.9);
 }
 
+.project-card-media {
+    margin: -0.25rem -0.25rem 1.25rem;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(24, 40, 60, 0.08);
+    box-shadow: var(--shadow-sm);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 230, 0.92));
+}
+
+.project-card-media img {
+    width: 100%;
+    height: auto;
+}
+
 .project-card-type {
     margin: 0;
     color: var(--teal);
@@ -742,6 +756,12 @@ main {
 
 .project-card-summary {
     margin: 1rem 0 0;
+}
+
+.project-card-note {
+    margin: 0.85rem 0 0;
+    color: var(--ink-muted);
+    font-size: 0.98rem;
 }
 
 .experience-grid,
