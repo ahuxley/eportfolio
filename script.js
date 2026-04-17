@@ -188,6 +188,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const formButtonLabel = formButton ? formButton.querySelector(".button-label") : null;
     const endpointMeta = document.querySelector('meta[name="formspree-endpoint"]');
     const endpoint = endpointMeta ? endpointMeta.content.trim() : "";
+    const galleries = Array.from(document.querySelectorAll("[data-gallery]"));
+
+    galleries.forEach((gallery) => {
+        const slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
+        const tabs = Array.from(gallery.querySelectorAll("[data-gallery-go]"));
+        const prev = gallery.querySelector("[data-gallery-prev]");
+        const next = gallery.querySelector("[data-gallery-next]");
+
+        if (!slides.length || !tabs.length) {
+            return;
+        }
+
+        let activeIndex = slides.findIndex((slide) => !slide.hasAttribute("hidden"));
+        if (activeIndex < 0) {
+            activeIndex = 0;
+        }
+
+        const updateGallery = (index) => {
+            activeIndex = (index + slides.length) % slides.length;
+
+            slides.forEach((slide, slideIndex) => {
+                const isActive = slideIndex === activeIndex;
+                slide.classList.toggle("is-active", isActive);
+                slide.hidden = !isActive;
+            });
+
+            tabs.forEach((tab, tabIndex) => {
+                const isActive = tabIndex === activeIndex;
+                tab.classList.toggle("is-active", isActive);
+                tab.setAttribute("aria-selected", String(isActive));
+            });
+        };
+
+        tabs.forEach((tab, tabIndex) => {
+            tab.addEventListener("click", () => updateGallery(tabIndex));
+        });
+
+        if (prev) {
+            prev.addEventListener("click", () => updateGallery(activeIndex - 1));
+        }
+
+        if (next) {
+            next.addEventListener("click", () => updateGallery(activeIndex + 1));
+        }
+
+        updateGallery(activeIndex);
+    });
 
     function setStatus(message, type = "") {
         if (!status) {

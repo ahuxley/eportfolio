@@ -215,28 +215,78 @@
 
             <article class="project-feature project-feature-secondary" data-reveal="up">
                 <div class="project-visual">
-                    <div class="project-console">
+                    <div class="project-console project-gallery" data-gallery="hotel-project">
                         <div class="project-screen-bar"></div>
                         <div class="project-console-stage">
-                            <div class="project-console-gallery">
-                                <figure class="project-console-shot">
-                                    <img
-                                        src="assets/hotel-view-room-pricing.png"
-                                        alt="Screenshot of the room pricing view in my Python hotel reservation system"
-                                        width="975"
-                                        height="466"
+                            <div class="project-console-gallery-viewer">
+                                <figure class="project-console-shot is-active" data-gallery-slide="0">
+                                    <a
+                                        class="project-console-link"
+                                        href="assets/hotel-view-room-pricing.png"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Open the full-size room pricing screenshot"
                                     >
-                                    <figcaption>View Room Pricing</figcaption>
+                                        <img
+                                            src="assets/hotel-view-room-pricing.png"
+                                            alt="Screenshot of the room pricing view in my Python hotel reservation system"
+                                            width="975"
+                                            height="466"
+                                        >
+                                    </a>
+                                    <figcaption>
+                                        <span>View Room Pricing</span>
+                                        <a href="assets/hotel-view-room-pricing.png" target="_blank" rel="noopener noreferrer">Open full size</a>
+                                    </figcaption>
                                 </figure>
-                                <figure class="project-console-shot">
-                                    <img
-                                        src="assets/hotel-make-reservation.png"
-                                        alt="Screenshot of the reservation flow in my Python hotel reservation system"
-                                        width="648"
-                                        height="613"
+                                <figure class="project-console-shot" data-gallery-slide="1" hidden>
+                                    <a
+                                        class="project-console-link"
+                                        href="assets/hotel-make-reservation.png"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Open the full-size reservation flow screenshot"
                                     >
-                                    <figcaption>Make a Reservation</figcaption>
+                                        <img
+                                            src="assets/hotel-make-reservation.png"
+                                            alt="Screenshot of the reservation flow in my Python hotel reservation system"
+                                            width="648"
+                                            height="613"
+                                        >
+                                    </a>
+                                    <figcaption>
+                                        <span>Make a Reservation</span>
+                                        <a href="assets/hotel-make-reservation.png" target="_blank" rel="noopener noreferrer">Open full size</a>
+                                    </figcaption>
                                 </figure>
+                            </div>
+                            <div class="project-gallery-controls" aria-label="Hotel project screenshots">
+                                <button class="project-gallery-arrow" type="button" data-gallery-prev aria-label="Show previous screenshot">
+                                    Prev
+                                </button>
+                                <div class="project-gallery-paging" role="tablist" aria-label="Hotel project screenshot pages">
+                                    <button
+                                        class="project-gallery-tab is-active"
+                                        type="button"
+                                        role="tab"
+                                        aria-selected="true"
+                                        data-gallery-go="0"
+                                    >
+                                        Pricing View
+                                    </button>
+                                    <button
+                                        class="project-gallery-tab"
+                                        type="button"
+                                        role="tab"
+                                        aria-selected="false"
+                                        data-gallery-go="1"
+                                    >
+                                        Reservation Flow
+                                    </button>
+                                </div>
+                                <button class="project-gallery-arrow" type="button" data-gallery-next aria-label="Show next screenshot">
+                                    Next
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -566,6 +566,7 @@ main {
 .project-feature-secondary {
     margin-top: 1.25rem;
     align-items: start;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
 }
 
 .project-visual {
@@ -618,15 +619,16 @@ main {
 .project-console-stage {
     min-height: auto;
     position: relative;
-    padding: 1rem;
+    padding: 0.8rem;
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
 }
 
-.project-console-gallery {
-    display: grid;
-    gap: 0.85rem;
+.project-console-gallery-viewer {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .project-console-shot {
@@ -638,12 +640,28 @@ main {
     box-shadow: 0 20px 34px rgba(0, 0, 0, 0.2);
 }
 
+.project-console-link {
+    display: block;
+    background: #080d14;
+}
+
+.project-console-shot:not(.is-active) {
+    display: none;
+}
+
 .project-console-shot img {
     width: 100%;
     height: auto;
+    max-height: min(34rem, 68vh);
+    object-fit: contain;
 }
 
 .project-console-shot figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    flex-wrap: wrap;
     padding: 0.7rem 0.95rem 0.9rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     color: #fff8f0;
@@ -652,6 +670,68 @@ main {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     background: linear-gradient(180deg, rgba(255, 248, 240, 0.08), rgba(255, 248, 240, 0.04));
+}
+
+.project-console-shot figcaption a {
+    color: #fbd7c3;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.project-console-shot figcaption a:hover,
+.project-console-shot figcaption a:focus-visible {
+    color: #fff8f0;
+    text-decoration: underline;
+}
+
+.project-gallery-controls {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.project-gallery-arrow,
+.project-gallery-tab {
+    border: 1px solid rgba(255, 248, 240, 0.16);
+    background: rgba(255, 248, 240, 0.08);
+    color: #fff8f0;
+    font-family: "IBM Plex Mono", monospace;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-gallery-arrow:hover,
+.project-gallery-arrow:focus-visible,
+.project-gallery-tab:hover,
+.project-gallery-tab:focus-visible,
+.project-gallery-tab.is-active {
+    background: rgba(255, 248, 240, 0.16);
+    border-color: rgba(255, 248, 240, 0.28);
+}
+
+.project-gallery-arrow {
+    min-width: 4.75rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-gallery-paging {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.55rem;
+}
+
+.project-gallery-tab {
+    padding: 0.72rem 0.95rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .fighter {
@@ -991,6 +1071,13 @@ main {
         min-height: auto;
     }
 
+    .project-gallery-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .project-gallery-arrow {
+        width: 100%;
+    }
 }
 
 @media (max-width: 840px) {
