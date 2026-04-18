@@ -774,9 +774,30 @@ main {
     align-content: start;
 }
 
+.project-status-pill {
+    margin: 0.55rem 0 0;
+    width: fit-content;
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(162, 93, 63, 0.14);
+    border: 1px solid rgba(162, 93, 63, 0.34);
+    color: #7d3f24;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 .project-feature h3 {
     font-size: clamp(1.95rem, 3vw, 2.7rem);
     margin-top: 0.35rem;
+}
+
+.project-status-note {
+    margin: 0.85rem 0 0;
+    color: var(--ink-soft);
+    font-weight: 600;
 }
 
 .project-summary {
