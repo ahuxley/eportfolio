@@ -1,3 +1,9 @@
-# ahuxley.github.io
+﻿# Andrew Huxley Portfolio
 
-Root redirect for portfolio: https://ahuxley.github.io/eportfolio/
+This repository serves my personal portfolio at:
+
+`https://ahuxley.github.io/`
+
+Source project repo:
+
+`https://github.com/ahuxley/eportfolio`

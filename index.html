@@ -1,16 +1,635 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirecting to Portfolio</title>
-  <meta http-equiv="refresh" content="0; url=https://ahuxley.github.io/eportfolio/" />
-  <link rel="canonical" href="https://ahuxley.github.io/eportfolio/" />
-  <script>
-    window.location.replace('https://ahuxley.github.io/eportfolio/');
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Huxley | Computer Science & IT Portfolio</title>
+    <meta name="description" content="Experience-first portfolio for Andrew Huxley, a Computer Science student focused on IT support, analytics, and process improvement.">
+    <meta name="theme-color" content="#17324d">
+    <meta name="formspree-endpoint" content="">
+    <meta property="og:title" content="Andrew Huxley | Computer Science & IT Portfolio">
+    <meta property="og:description" content="Computer Science student with hands-on experience in IT support, analytics, operations, and project coordination.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahuxley.github.io/">
+    <meta property="og:image" content="https://ahuxley.github.io/assets/social-preview.png">
+    <meta property="og:image:alt" content="Andrew Huxley portfolio preview">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Andrew Huxley | Computer Science & IT Portfolio">
+    <meta name="twitter:description" content="Experience-first portfolio focused on IT support, analytics, and dependable execution.">
+    <meta name="twitter:image" content="https://ahuxley.github.io/assets/social-preview.png">
+    <link rel="canonical" href="https://ahuxley.github.io/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <p>Redirecting to <a href="https://ahuxley.github.io/eportfolio/">Andrew Huxley Portfolio</a>...</p>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="page-glow page-glow-left" aria-hidden="true"></div>
+    <div class="page-glow page-glow-right" aria-hidden="true"></div>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Primary">
+            <a class="brand" href="#top" aria-label="Andrew Huxley home">
+                <span class="brand-mark">AH</span>
+                <span class="brand-copy">
+                    <span class="brand-name">Andrew Huxley</span>
+                    <span class="brand-role">Computer Science & IT</span>
+                </span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="mobile-menu-btn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-menu"
+                aria-label="Toggle navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="site-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#toolkit">Toolkit</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero section-shell">
+            <div class="hero-copy" data-reveal="up">
+                <p class="eyebrow">Open to internships and entry-level opportunities</p>
+                <h1>Dependable technical support, thoughtful analysis, and calm execution.</h1>
+                <p class="hero-lead">
+                    I am a Computer Science student at the University of Michigan-Flint building
+                    a foundation in IT support, operations, analytics, and project coordination.
+                </p>
+                <p class="hero-body">
+                    My experience spans customer-facing service, data-informed workflow improvement, and
+                    process documentation that helps teams stay clear, accurate, and responsive.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#experience">Explore Experience</a>
+                    <a class="button button-secondary" href="https://github.com/ahuxley" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                    <a class="button button-tertiary" href="#contact">Get in Touch</a>
+                </div>
+                <ul class="hero-proof" aria-label="Key highlights">
+                    <li>Expected graduation: April 2028</li>
+                    <li>Google IT Support Certificate</li>
+                    <li>Contributed to a top 10% regional team performance ranking at AAA</li>
+                </ul>
+            </div>
+
+            <aside class="hero-panel" data-reveal="left" aria-label="Profile summary">
+                <div class="profile-card">
+                    <p class="profile-label">Current focus</p>
+                    <h2>Computer Science student with an IT and operations mindset.</h2>
+                    <p>
+                        I care about dependable systems, clear communication, and practical support that helps
+                        people do their work with less friction.
+                    </p>
+                </div>
+                <div class="hero-mini-grid">
+                    <article class="hero-mini-card">
+                        <p class="hero-mini-label">Based in</p>
+                        <p class="hero-mini-value">Michigan, United States</p>
+                    </article>
+                    <article class="hero-mini-card">
+                        <p class="hero-mini-label">Actively seeking</p>
+                        <p class="hero-mini-value">Internships and entry-level technical roles</p>
+                    </article>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section-shell section-stack" id="about">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">About</p>
+                <h2>Grounded in service, sharpened by process, motivated by technology.</h2>
+                <p>
+                    I combine technical curiosity with frontline experience. That mix shows up in how I
+                    approach troubleshooting, communication, and systems that have to work for real people.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <article class="story-card" data-reveal="up">
+                    <p>
+                        I am currently studying Computer Science at the University of Michigan-Flint and actively
+                        developing the technical depth needed for IT support, analytics, and early-career
+                        software environments.
+                    </p>
+                    <p>
+                        Beyond coursework, my background includes customer-facing operations, process reporting,
+                        and accountability in regulated environments. That experience shaped a steady working style:
+                        organized, practical, and focused on follow-through.
+                    </p>
+                    <p>
+                        Community involvement matters to me too. I have volunteered with Feeding America and served
+                        as a judge for the Flint Regional Science and Engineering Fair, reinforcing my commitment to
+                        service and local impact.
+                    </p>
+                </article>
+
+                <div class="metric-grid">
+                    <article class="metric-card" data-reveal="up">
+                        <p class="metric-label">Graduation target</p>
+                        <p class="metric-value" data-count="2028">2028</p>
+                        <p class="metric-note">Expected completion of Computer Science degree</p>
+                    </article>
+                    <article class="metric-card" data-reveal="up">
+                        <p class="metric-label">Professional certificates</p>
+                        <p class="metric-value" data-count="2">2</p>
+                        <p class="metric-note">Google IT Support and project management specialization</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="projects">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Projects</p>
+                <h2>Projects that show how I like to build across software and hardware.</h2>
+                <p>
+                    I enjoy projects that connect code to a real interaction. MicroFighter is one of the clearest
+                    examples because it pushed me to think about game logic, hardware input, and system integration
+                    at the same time.
+                </p>
+            </div>
+
+            <article class="project-feature" data-reveal="up">
+                <div class="project-visual">
+                    <div class="project-screen">
+                        <div class="project-screen-bar"></div>
+                        <div class="project-stage project-video-stage">
+                            <video class="project-demo-video" controls preload="metadata" playsinline>
+                                <source src="assets/demo-microfighter.mp4" type="video/mp4">
+                                Your browser does not support this video format.
+                            </video>
+                            <figure class="project-prototype-shot">
+                                <a
+                                    class="project-prototype-link"
+                                    href="assets/microfighter-controller-prototype.png"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open the full-size MicroFighter controller prototype image"
+                                >
+                                    <img
+                                        src="assets/microfighter-controller-prototype.png"
+                                        alt="Prototype of the custom MicroFighter controller with Arduino Mega R3, push buttons, and analog stick wiring"
+                                        width="758"
+                                        height="322"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                </a>
+                                <figcaption>
+                                    Controller prototype (Arduino Mega R3 + push buttons + analog stick)
+                                </figcaption>
+                            </figure>
+                            <div class="project-ui-chip-row" aria-label="MicroFighter technologies">
+                                <div class="project-ui-chip">2D Fighter</div>
+                                <div class="project-ui-chip">Custom Controller</div>
+                                <div class="project-ui-chip">Python Bridge</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-copy">
+                    <p class="project-label">Featured Project</p>
+                    <p class="project-status-pill">Work in Progress</p>
+                    <h3>MicroFighter</h3>
+                    <p class="project-summary">
+                        MicroFighter is a 2D two-player fighting game that I built in Godot. What made the
+                        project especially interesting was that we did not stop at the game itself. We also built
+                        a custom Arduino Mega R3 controller using push buttons and an analog stick.
+                    </p>
+                    <p class="project-status-note">
+                        Current status: I am still actively improving this project and adding polish.
+                    </p>
+                    <p class="project-summary">
+                        To make the hardware work with the game, I wrote a Python bridge that reads Arduino serial
+                        input, interprets button masks and analog stick values, and converts them into player
+                        controls that the game can use. The script maps inputs for two players, handles analog
+                        deadzones, and can send both Windows keyboard events and UDP messages for integration.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>Built gameplay in Godot for a local two-player fighting experience</li>
+                        <li>Helped create a custom Arduino Mega R3 controller with push buttons and an analog stick</li>
+                        <li>Wrote a Python bridge that parses serial payloads, maps player actions, and translates hardware input into usable game controls</li>
+                    </ul>
+                    <ul class="tag-list project-tags">
+                        <li>Godot</li>
+                        <li>Python</li>
+                        <li>Arduino Mega R3</li>
+                        <li>Serial Communication</li>
+                        <li>Input Mapping</li>
+                        <li>UDP</li>
+                        <li>Game Development</li>
+                        <li>Hardware Integration</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="project-feature project-feature-secondary" data-reveal="up">
+                <div class="project-visual">
+                    <div class="project-console project-gallery" data-gallery="hotel-project">
+                        <div class="project-screen-bar"></div>
+                        <div class="project-console-stage">
+                            <div class="project-console-gallery-viewer">
+                                <figure
+                                    class="project-console-shot is-active"
+                                    data-gallery-slide="0"
+                                    id="hotel-gallery-panel-0"
+                                    role="tabpanel"
+                                    aria-labelledby="hotel-gallery-tab-0"
+                                    tabindex="0"
+                                >
+                                    <a
+                                        class="project-console-link"
+                                        href="assets/hotel-view-room-pricing.png"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Open the full-size room pricing screenshot"
+                                    >
+                                        <img
+                                            src="assets/hotel-view-room-pricing.png"
+                                            alt="Screenshot of the room pricing view in my Python hotel reservation system"
+                                            width="975"
+                                            height="466"
+                                            loading="lazy"
+                                            decoding="async"
+                                        >
+                                    </a>
+                                    <figcaption>
+                                        <span>View Room Pricing</span>
+                                        <a href="assets/hotel-view-room-pricing.png" target="_blank" rel="noopener noreferrer">Open full size</a>
+                                    </figcaption>
+                                </figure>
+                                <figure
+                                    class="project-console-shot"
+                                    data-gallery-slide="1"
+                                    id="hotel-gallery-panel-1"
+                                    role="tabpanel"
+                                    aria-labelledby="hotel-gallery-tab-1"
+                                    tabindex="-1"
+                                    aria-hidden="true"
+                                    hidden
+                                >
+                                    <a
+                                        class="project-console-link"
+                                        href="assets/hotel-make-reservation.png"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Open the full-size reservation flow screenshot"
+                                    >
+                                        <img
+                                            src="assets/hotel-make-reservation.png"
+                                            alt="Screenshot of the reservation flow in my Python hotel reservation system"
+                                            width="648"
+                                            height="613"
+                                            loading="lazy"
+                                            decoding="async"
+                                        >
+                                    </a>
+                                    <figcaption>
+                                        <span>Make a Reservation</span>
+                                        <a href="assets/hotel-make-reservation.png" target="_blank" rel="noopener noreferrer">Open full size</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="project-gallery-controls" aria-label="Hotel project screenshots">
+                                <button class="project-gallery-arrow" type="button" data-gallery-prev aria-label="Show previous screenshot">
+                                    Prev
+                                </button>
+                                <div class="project-gallery-paging" role="tablist" aria-label="Hotel project screenshot pages">
+                                    <button
+                                        class="project-gallery-tab is-active"
+                                        type="button"
+                                        id="hotel-gallery-tab-0"
+                                        role="tab"
+                                        aria-controls="hotel-gallery-panel-0"
+                                        aria-selected="true"
+                                        tabindex="0"
+                                        data-gallery-go="0"
+                                    >
+                                        Pricing View
+                                    </button>
+                                    <button
+                                        class="project-gallery-tab"
+                                        type="button"
+                                        id="hotel-gallery-tab-1"
+                                        role="tab"
+                                        aria-controls="hotel-gallery-panel-1"
+                                        aria-selected="false"
+                                        tabindex="-1"
+                                        data-gallery-go="1"
+                                    >
+                                        Reservation Flow
+                                    </button>
+                                </div>
+                                <button class="project-gallery-arrow" type="button" data-gallery-next aria-label="Show next screenshot">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-copy">
+                    <p class="project-label">Project</p>
+                    <h3>Hotel Reservation System</h3>
+                    <p class="project-summary">
+                        I created a menu-driven hotel reservation system in Python that lets a user view room
+                        pricing, choose among multiple room types, and calculate reservation totals based on
+                        daily or weekly stays.
+                    </p>
+                    <p class="project-summary">
+                        The screenshots on the left show the room-pricing menu and the reservation flow using
+                        the real program output from this project.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>Built a command-line interface with options to view pricing, make a reservation, or exit</li>
+                        <li>Used Python lists and functions to manage room types, rates, resort fees, and cost calculations</li>
+                        <li>Added input validation for room selection, reservation type, and stay length so the program handles invalid entries more safely</li>
+                    </ul>
+                    <ul class="tag-list project-tags">
+                        <li>Python</li>
+                        <li>CLI Application</li>
+                        <li>Reservation Logic</li>
+                        <li>Input Validation</li>
+                        <li>Program Design</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <section class="section-shell section-stack" id="experience">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Experience</p>
+                <h2>Professional experience that translates into dependable technical work.</h2>
+                <p>
+                    This portfolio centers on the real environments I have worked in: settings where accuracy,
+                    responsiveness, and clear communication matter every day.
+                </p>
+            </div>
+
+            <div class="experience-grid">
+                <article class="experience-card" data-reveal="up">
+                    <div class="experience-body">
+                        <p class="experience-meta">AAA Auto Club Group</p>
+                        <h3>Regional Insurance Specialist</h3>
+                        <p>
+                            Analyzed performance data, identified inefficiencies, and helped improve workflows in a
+                            high-accountability environment, contributing to a top 10% regional ranking.
+                        </p>
+                        <ul class="experience-points">
+                            <li>Used reporting and operational insight to surface process gaps</li>
+                            <li>Supported cross-functional coordination around compliance and efficiency</li>
+                            <li>Strengthened confidence in data-backed decision making</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="experience-card" data-reveal="up">
+                    <div class="experience-body">
+                        <p class="experience-meta">State Farm</p>
+                        <h3>Insurance Agent</h3>
+                        <p>
+                            Managed commercial accounts using Salesforce CRM and data analysis to support risk
+                            mitigation, documentation quality, and policy compliance.
+                        </p>
+                        <ul class="experience-points">
+                            <li>Worked with enterprise tooling in a detail-sensitive setting</li>
+                            <li>Built habits around data accuracy and accountable communication</li>
+                            <li>Gained practical experience balancing systems and client needs</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="experience-card" data-reveal="up">
+                    <div class="experience-body">
+                        <p class="experience-meta">Starbucks</p>
+                        <h3>Barista & Operations</h3>
+                        <p>
+                            Helped keep fast-moving operations stable by coordinating tasks, supporting inventory
+                            needs, and resolving customer issues under pressure.
+                        </p>
+                        <ul class="experience-points">
+                            <li>Practiced calm execution in high-volume environments</li>
+                            <li>Improved task coordination and team communication</li>
+                            <li>Built customer support instincts that translate well to helpdesk work</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="toolkit">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Toolkit</p>
+                <h2>Technical strengths built around support, systems, and analysis.</h2>
+                <p>
+                    My toolkit reflects where I am strongest today: foundational programming, IT support
+                    knowledge, data awareness, and clear operational communication.
+                </p>
+            </div>
+
+            <div class="toolkit-grid">
+                <article class="toolkit-card" data-reveal="up">
+                    <p class="toolkit-label">Programming & data</p>
+                    <h3>Problem solving with structure.</h3>
+                    <ul class="tag-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>R Programming</li>
+                        <li>Data Analytics</li>
+                        <li>Reporting</li>
+                    </ul>
+                </article>
+                <article class="toolkit-card" data-reveal="up">
+                    <p class="toolkit-label">IT & systems</p>
+                    <h3>Practical support fundamentals.</h3>
+                    <ul class="tag-list">
+                        <li>Hardware Troubleshooting</li>
+                        <li>Networking Fundamentals</li>
+                        <li>Operating Systems</li>
+                        <li>Technical Documentation</li>
+                        <li>End-user Support</li>
+                    </ul>
+                </article>
+                <article class="toolkit-card" data-reveal="up">
+                    <p class="toolkit-label">Coordination & delivery</p>
+                    <h3>Clear communication under real constraints.</h3>
+                    <ul class="tag-list">
+                        <li>Project Management</li>
+                        <li>Workflow Improvement</li>
+                        <li>Salesforce CRM</li>
+                        <li>Customer Communication</li>
+                        <li>Team Coordination</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="credentials">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Credentials</p>
+                <h2>Certifications and community involvement that reinforce the work.</h2>
+                <p>
+                    Formal credentials and volunteer work support the same throughline: learning consistently,
+                    staying useful, and showing up well for other people.
+                </p>
+            </div>
+
+            <div class="credential-grid">
+                <article class="credential-card" data-reveal="up">
+                    <p class="credential-label">Certification</p>
+                    <h3>Google IT Support Professional Certificate</h3>
+                    <p>
+                        Built foundational confidence in troubleshooting, systems thinking, networking basics,
+                        and user-focused support practices.
+                    </p>
+                </article>
+                <article class="credential-card" data-reveal="up">
+                    <p class="credential-label">Specialization</p>
+                    <h3>University of Colorado Boulder Project Management</h3>
+                    <p>
+                        Strengthened planning, prioritization, communication, and execution habits that carry well
+                        into technical and cross-functional work.
+                    </p>
+                </article>
+                <article class="credential-card" data-reveal="up">
+                    <p class="credential-label">Community</p>
+                    <h3>Feeding America Volunteer & Science Fair Judge</h3>
+                    <p>
+                        Contributed locally through service and mentorship-oriented involvement in the Flint
+                        community.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="github">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">GitHub</p>
+                <h2>A growing public footprint that supports the story without overstating it.</h2>
+                <p>
+                    My GitHub is still early-stage, but it already shows my interest in building in public
+                    and exploring technical tools over time.
+                </p>
+            </div>
+
+            <div class="github-grid">
+                <article class="github-summary" data-reveal="up">
+                    <p class="github-summary-label">Public profile snapshot</p>
+                    <h3>Selected public activity includes this portfolio and a few learning-oriented repos.</h3>
+                    <p>
+                        Rather than presenting a deep project catalog that does not exist yet, I use GitHub here
+                        as supporting proof of curiosity, follow-through, and momentum.
+                    </p>
+                    <div class="github-actions">
+                        <a class="button button-primary" href="https://github.com/ahuxley" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+                        <a class="button button-secondary" href="https://github.com/ahuxley/eportfolio" target="_blank" rel="noopener noreferrer">Open This Repo</a>
+                    </div>
+                </article>
+
+                <div class="github-list">
+                    <article class="repo-card" data-reveal="up">
+                        <p class="repo-type">Portfolio</p>
+                        <h3>eportfolio</h3>
+                        <p>This public GitHub Pages site documents my current professional story.</p>
+                    </article>
+                    <article class="repo-card" data-reveal="up">
+                        <p class="repo-type">Exploration</p>
+                        <h3>Scrapling</h3>
+                        <p>Public fork used to explore adaptive web scraping concepts and tooling.</p>
+                    </article>
+                    <article class="repo-card" data-reveal="up">
+                        <p class="repo-type">Exploration</p>
+                        <h3>self-hosted-ai-starter-kit</h3>
+                        <p>Public fork reflecting interest in local AI environments and workflow tooling.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell section-stack" id="contact">
+            <div class="section-heading" data-reveal="up">
+                <p class="section-kicker">Contact</p>
+                <h2>Reach out for internships, entry-level roles, or thoughtful technical collaboration.</h2>
+                <p>
+                    The fastest way to connect with me is by email or LinkedIn. The form below supports Formspree
+                    and gracefully falls back to opening an email draft when no endpoint is configured.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <article class="contact-card" data-reveal="up">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button class="button button-primary submit-button" type="submit">
+                            <span class="button-label">Send Message</span>
+                        </button>
+                        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </article>
+
+                <aside class="contact-panel" data-reveal="up">
+                    <article class="contact-method">
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:drewhuxley01@gmail.com">drewhuxley01@gmail.com</a>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/andrewhuxley/" target="_blank" rel="noopener noreferrer">linkedin.com/in/andrewhuxley</a>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">GitHub</p>
+                        <a href="https://github.com/ahuxley" target="_blank" rel="noopener noreferrer">github.com/ahuxley</a>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">Availability</p>
+                        <p>Seeking internships and entry-level roles in IT support, analytics, and technical operations.</p>
+                    </article>
+                    <article class="contact-method">
+                        <p class="contact-label">Location</p>
+                        <p>Michigan, United States</p>
+                    </article>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>My portfolio, built as a fast static site for GitHub Pages.</p>
+        <p>&copy; 2026 Andrew Huxley. Clear systems, dependable support, and steady growth.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
