@@ -286,8 +286,6 @@ main {
 .project-feature h3,
 .toolkit-card h3,
 .credential-card h3,
-.github-summary h3,
-.repo-card h3,
 .experience-body h3,
 .project-card h3 {
     margin: 0;
@@ -307,8 +305,6 @@ main {
 .profile-label,
 .toolkit-label,
 .credential-label,
-.github-summary-label,
-.repo-type,
 .experience-meta,
 .metric-label,
 .contact-label,
@@ -325,8 +321,6 @@ main {
 .profile-label,
 .toolkit-label,
 .credential-label,
-.github-summary-label,
-.repo-type,
 .experience-meta,
 .project-label {
     color: var(--accent-strong);
@@ -344,8 +338,6 @@ main {
 .section-heading p,
 .experience-body p,
 .credential-card p,
-.github-summary p,
-.repo-card p,
 .story-card p,
 .metric-note,
 .project-summary,
@@ -354,8 +346,7 @@ main {
     line-height: 1.7;
 }
 
-.hero-actions,
-.github-actions {
+.hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -443,8 +434,6 @@ main {
 .experience-card,
 .toolkit-card,
 .credential-card,
-.github-summary,
-.repo-card,
 .contact-card,
 .project-feature,
 .project-card {
@@ -459,8 +448,6 @@ main {
 .experience-card,
 .toolkit-card,
 .credential-card,
-.github-summary,
-.repo-card,
 .contact-card,
 .project-card {
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
@@ -471,8 +458,6 @@ main {
 .experience-card:hover,
 .toolkit-card:hover,
 .credential-card:hover,
-.github-summary:hover,
-.repo-card:hover,
 .contact-card:hover,
 .project-card:hover {
     transform: translateY(-2px);
@@ -543,8 +528,7 @@ main {
     font-size: 1.06rem;
 }
 
-.about-grid,
-.github-grid {
+.about-grid {
     display: grid;
     grid-template-columns: 1.08fr 0.92fr;
     gap: 1.4rem;
@@ -872,6 +856,44 @@ main {
     max-width: 68ch;
 }
 
+.project-links-label {
+    margin: 1rem 0 0;
+    color: var(--accent-strong);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.45rem;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.78rem;
+    border-radius: 999px;
+    border: 1px solid rgba(24, 40, 60, 0.16);
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--ink);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.69rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.project-links a:hover,
+.project-links a:focus-visible {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(24, 40, 60, 0.28);
+}
+
 .project-highlights,
 .project-card-points,
 .experience-points,
@@ -950,8 +972,6 @@ main {
 .experience-body,
 .toolkit-card,
 .credential-card,
-.github-summary,
-.repo-card,
 .contact-card {
     padding: 1.5rem;
 }
@@ -968,9 +988,7 @@ main {
 
 .experience-body h3,
 .toolkit-card h3,
-.credential-card h3,
-.github-summary h3,
-.repo-card h3 {
+.credential-card h3 {
     font-size: 1.4rem;
     margin-top: 0.35rem;
     line-height: 1.2;
@@ -1004,15 +1022,6 @@ main {
     padding: 0.55rem 0.8rem;
     font-size: 0.94rem;
     line-height: 1.35;
-}
-
-.github-list {
-    display: grid;
-    gap: 1rem;
-}
-
-.repo-card {
-    background: rgba(255, 250, 242, 0.72);
 }
 
 .contact-card {
@@ -1119,8 +1128,7 @@ main {
 @media (max-width: 1080px) {
     .hero,
     .project-feature,
-    .about-grid,
-    .github-grid {
+    .about-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1256,8 +1264,6 @@ main {
     .experience-body,
     .toolkit-card,
     .credential-card,
-    .github-summary,
-    .repo-card,
     .contact-card,
     .project-feature,
     .project-card {

@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
+            if (event.key === "Escape" && navLinks.classList.contains("is-open")) {
                 closeMenu();
                 menuBtn.focus();
             }
@@ -288,5 +288,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateGallery(activeIndex);
     });
+
+    const currentYear = document.getElementById("current-year");
+    if (currentYear) {
+        currentYear.textContent = String(new Date().getFullYear());
+    }
 
 });
