@@ -701,6 +701,18 @@ main {
     line-height: 1.45;
 }
 
+.project-source-link {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+}
+
+.project-source-link:hover,
+.project-source-link:focus-visible {
+    color: var(--accent-strong);
+}
+
 .project-console {
     width: 100%;
     min-height: 100%;

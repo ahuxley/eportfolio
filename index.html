@@ -352,6 +352,10 @@
                         The platform connects frontend search workflows to Supabase-backed functions and store data,
                         then presents results through inventory views, a store directory, and map-based context.
                     </p>
+                    <p class="project-summary">
+                        CardMap inventory search is powered by my scraper pipeline below, which keeps listings
+                        normalized and refreshed for local store discovery.
+                    </p>
                     <ul class="project-highlights">
                         <li>Implemented location-aware search flows with ZIP validation, GPS lookup, and radius filtering</li>
                         <li>Built reliability patterns like caching and retry/backoff to keep search interactions responsive</li>
@@ -367,6 +371,59 @@
                         <li>Leaflet</li>
                         <li>Inventory Search</li>
                     </ul>
+                </div>
+            </article>
+
+            <article class="project-feature project-feature-secondary" id="cardmap-scraper" data-reveal="up">
+                <div class="project-visual">
+                    <div class="project-screen">
+                        <div class="project-screen-bar"></div>
+                        <div class="project-stage project-cardmap-stage">
+                            <p class="project-cardmap-kicker">CardMap data pipeline</p>
+                            <ul class="project-cardmap-steps" aria-label="CardMap scraper workflow">
+                                <li>Scrape BinderPOS and TCGplayer Pro stores for live inventory data.</li>
+                                <li>Normalize card names, condition, foil state, quantity, and pricing.</li>
+                                <li>Upsert to Supabase and refresh search listings used by CardMap queries.</li>
+                            </ul>
+                            <div class="project-ui-chip-row" aria-label="Scraper technologies">
+                                <div class="project-ui-chip">Python</div>
+                                <div class="project-ui-chip">ThreadPoolExecutor</div>
+                                <div class="project-ui-chip">Supabase RPC</div>
+                                <div class="project-ui-chip">Data Quality Filters</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-copy">
+                    <p class="project-label">Project</p>
+                    <h3>CardMap Inventory Scraper</h3>
+                    <p class="project-summary">
+                        This scraper is the ingestion layer behind CardMap. It collects multi-store inventory,
+                        standardizes the records, and publishes searchable data for the frontend.
+                    </p>
+                    <p class="project-summary">
+                        The pipeline is built for operational reliability with per-store partitioning, retry handling,
+                        deduplication before upsert, and run-level reporting for auditability.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>Supports both BinderPOS/Shopify and TCGplayer Pro store scraping flows</li>
+                        <li>Applies normalization and accuracy filtering before database writes</li>
+                        <li>Finalizes each run by refreshing the search surface consumed by CardMap</li>
+                    </ul>
+                    <ul class="tag-list project-tags">
+                        <li>Python</li>
+                        <li>Web Scraping</li>
+                        <li>Supabase</li>
+                        <li>PostgreSQL</li>
+                        <li>Concurrency</li>
+                        <li>ETL</li>
+                        <li>Observability</li>
+                        <li>Data Pipeline</li>
+                    </ul>
+                    <p class="project-summary">
+                        <a class="project-source-link" href="https://github.com/ahuxley/cardmap/blob/main/scripts/scraper.py" target="_blank" rel="noopener noreferrer">View scraper.py</a>
+                    </p>
                 </div>
             </article>
         </section>
