@@ -219,12 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
         counters.forEach((counter) => counterObserver.observe(counter));
     }
 
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-    const formButton = form ? form.querySelector(".submit-button") : null;
-    const formButtonLabel = formButton ? formButton.querySelector(".button-label") : null;
-    const endpointMeta = document.querySelector('meta[name="formspree-endpoint"]');
-    const endpoint = endpointMeta ? endpointMeta.content.trim() : "";
     const galleries = Array.from(document.querySelectorAll("[data-gallery]"));
 
     galleries.forEach((gallery) => {
@@ -295,75 +289,4 @@ document.addEventListener("DOMContentLoaded", () => {
         updateGallery(activeIndex);
     });
 
-    function setStatus(message, type = "") {
-        if (!status) {
-            return;
-        }
-
-        status.textContent = message;
-        status.classList.remove("is-success", "is-error");
-
-        if (type) {
-            status.classList.add(type);
-        }
-    }
-
-    function setSubmitting(isSubmitting) {
-        if (!formButton || !formButtonLabel) {
-            return;
-        }
-
-        formButton.disabled = isSubmitting;
-        formButton.setAttribute("aria-busy", String(isSubmitting));
-        formButtonLabel.textContent = isSubmitting ? "Sending..." : "Send Message";
-    }
-
-    if (form) {
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            setStatus("");
-
-            if (!form.reportValidity()) {
-                setStatus("Please complete all required fields before sending.", "is-error");
-                return;
-            }
-
-            const data = new FormData(form);
-            const name = String(data.get("name") || "").trim();
-            const email = String(data.get("email") || "").trim();
-            const message = String(data.get("message") || "").trim();
-
-            if (!endpoint) {
-                const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-                const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-                setStatus("Opening your email app because the form endpoint is not configured yet.");
-                window.location.href = `mailto:drewhuxley01@gmail.com?subject=${subject}&body=${body}`;
-                form.reset();
-                return;
-            }
-
-            setSubmitting(true);
-
-            try {
-                const response = await fetch(endpoint, {
-                    method: "POST",
-                    headers: {
-                        "Accept": "application/json"
-                    },
-                    body: data
-                });
-
-                if (!response.ok) {
-                    throw new Error("Submission failed");
-                }
-
-                form.reset();
-                setStatus("Thanks for reaching out. Your message has been sent.", "is-success");
-            } catch (error) {
-                setStatus("The message could not be sent right now. Please try the direct email link instead.", "is-error");
-            } finally {
-                setSubmitting(false);
-            }
-        });
-    }
 });
