@@ -275,13 +275,29 @@ main {
 .hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(1.25rem, 3vw, 2rem);
+    gap: clamp(1.5rem, 3vw, 2.2rem);
     padding-top: clamp(2.25rem, 4vw, 4rem);
     align-items: start;
 }
 
+.hero-copy {
+    max-width: 56rem;
+}
+
 .hero-about {
     margin-top: 0.4rem;
+    padding-top: clamp(1.6rem, 3vw, 2.35rem);
+    border-top: 1px solid rgba(24, 40, 60, 0.08);
+    display: grid;
+    gap: 1.1rem;
+}
+
+.hero-about .section-heading {
+    max-width: 52rem;
+}
+
+.hero-about .about-grid {
+    margin-top: 0.65rem;
 }
 
 .hero-copy h1,
@@ -1086,6 +1102,10 @@ main {
         grid-template-columns: 1fr;
     }
 
+    .hero-about {
+        padding-top: 1.4rem;
+    }
+
     .experience-grid,
     .toolkit-grid,
     .credential-grid {
@@ -1183,6 +1203,11 @@ main {
 
     .hero {
         padding-top: 1.35rem;
+    }
+
+    .hero-about {
+        margin-top: 0;
+        padding-top: 1.25rem;
     }
 
     .hero-copy h1 {
