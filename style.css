@@ -907,11 +907,6 @@ main {
     display: grid;
     gap: 1.25rem;
     margin-top: 2rem;
-}
-
-.experience-grid,
-.toolkit-grid,
-.credential-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 

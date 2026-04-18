@@ -91,12 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        setActiveLink("#about");
+        const syncHashActiveLink = () => {
+            const hash = window.location.hash;
+            const hasMatchingHashLink = sectionLinks.some(({ section }) => `#${section.id}` === hash);
+            if (hasMatchingHashLink) {
+                setActiveLink(hash);
+            } else if (window.scrollY <= 1) {
+                setActiveLink(null);
+            }
+        };
+
+        syncHashActiveLink();
 
         const sectionObserver = new IntersectionObserver((entries) => {
             const visibleEntries = entries
                 .filter((entry) => entry.isIntersecting)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
 
             if (!visibleEntries.length) {
                 return;
@@ -109,6 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         sectionLinks.forEach(({ section }) => sectionObserver.observe(section));
+
+        window.addEventListener("hashchange", syncHashActiveLink);
     }
 
     const reveals = document.querySelectorAll("[data-reveal]");
@@ -212,17 +224,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 const isActive = slideIndex === activeIndex;
                 slide.classList.toggle("is-active", isActive);
                 slide.hidden = !isActive;
+                slide.setAttribute("aria-hidden", String(!isActive));
+                slide.setAttribute("tabindex", isActive ? "0" : "-1");
             });
 
             tabs.forEach((tab, tabIndex) => {
                 const isActive = tabIndex === activeIndex;
                 tab.classList.toggle("is-active", isActive);
                 tab.setAttribute("aria-selected", String(isActive));
+                tab.setAttribute("tabindex", isActive ? "0" : "-1");
             });
         };
 
         tabs.forEach((tab, tabIndex) => {
             tab.addEventListener("click", () => updateGallery(tabIndex));
+            tab.addEventListener("keydown", (event) => {
+                if (event.key === "ArrowRight") {
+                    event.preventDefault();
+                    updateGallery(tabIndex + 1);
+                    tabs[(tabIndex + 1) % tabs.length]?.focus();
+                } else if (event.key === "ArrowLeft") {
+                    event.preventDefault();
+                    updateGallery(tabIndex - 1);
+                    tabs[(tabIndex - 1 + tabs.length) % tabs.length]?.focus();
+                } else if (event.key === "Home") {
+                    event.preventDefault();
+                    updateGallery(0);
+                    tabs[0]?.focus();
+                } else if (event.key === "End") {
+                    event.preventDefault();
+                    updateGallery(tabs.length - 1);
+                    tabs[tabs.length - 1]?.focus();
+                }
+            });
         });
 
         if (prev) {

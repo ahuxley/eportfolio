@@ -10,14 +10,14 @@
     <meta property="og:title" content="Andrew Huxley | Computer Science & IT Portfolio">
     <meta property="og:description" content="Computer Science student with hands-on experience in IT support, analytics, operations, and project coordination.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ahuxley.github.io/eportfolio/">
-    <meta property="og:image" content="https://ahuxley.github.io/eportfolio/assets/social-preview.png">
+    <meta property="og:url" content="https://ahuxley.github.io/">
+    <meta property="og:image" content="https://ahuxley.github.io/assets/social-preview.png">
     <meta property="og:image:alt" content="Andrew Huxley portfolio preview">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Andrew Huxley | Computer Science & IT Portfolio">
     <meta name="twitter:description" content="Experience-first portfolio focused on IT support, analytics, and dependable execution.">
-    <meta name="twitter:image" content="https://ahuxley.github.io/eportfolio/assets/social-preview.png">
-    <link rel="canonical" href="https://ahuxley.github.io/eportfolio/">
+    <meta name="twitter:image" content="https://ahuxley.github.io/assets/social-preview.png">
+    <link rel="canonical" href="https://ahuxley.github.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -247,7 +247,14 @@
                         <div class="project-screen-bar"></div>
                         <div class="project-console-stage">
                             <div class="project-console-gallery-viewer">
-                                <figure class="project-console-shot is-active" data-gallery-slide="0">
+                                <figure
+                                    class="project-console-shot is-active"
+                                    data-gallery-slide="0"
+                                    id="hotel-gallery-panel-0"
+                                    role="tabpanel"
+                                    aria-labelledby="hotel-gallery-tab-0"
+                                    tabindex="0"
+                                >
                                     <a
                                         class="project-console-link"
                                         href="assets/hotel-view-room-pricing.png"
@@ -267,7 +274,16 @@
                                         <a href="assets/hotel-view-room-pricing.png" target="_blank" rel="noopener noreferrer">Open full size</a>
                                     </figcaption>
                                 </figure>
-                                <figure class="project-console-shot" data-gallery-slide="1" hidden>
+                                <figure
+                                    class="project-console-shot"
+                                    data-gallery-slide="1"
+                                    id="hotel-gallery-panel-1"
+                                    role="tabpanel"
+                                    aria-labelledby="hotel-gallery-tab-1"
+                                    tabindex="-1"
+                                    aria-hidden="true"
+                                    hidden
+                                >
                                     <a
                                         class="project-console-link"
                                         href="assets/hotel-make-reservation.png"
@@ -296,8 +312,11 @@
                                     <button
                                         class="project-gallery-tab is-active"
                                         type="button"
+                                        id="hotel-gallery-tab-0"
                                         role="tab"
+                                        aria-controls="hotel-gallery-panel-0"
                                         aria-selected="true"
+                                        tabindex="0"
                                         data-gallery-go="0"
                                     >
                                         Pricing View
@@ -305,8 +324,11 @@
                                     <button
                                         class="project-gallery-tab"
                                         type="button"
+                                        id="hotel-gallery-tab-1"
                                         role="tab"
+                                        aria-controls="hotel-gallery-panel-1"
                                         aria-selected="false"
+                                        tabindex="-1"
                                         data-gallery-go="1"
                                     >
                                         Reservation Flow
