@@ -202,9 +202,12 @@
                         <div class="project-stage project-cardmap-stage">
                             <p class="project-cardmap-kicker">CardMap workflow</p>
                             <ul class="project-cardmap-steps" aria-label="CardMap core workflow">
-                                <li>Search MTG singles by ZIP or GPS location.</li>
-                                <li>Filter by radius and surface local store inventory.</li>
-                                <li>Use directory and map views to compare nearby stores.</li>
+                                <li>Store inventory is collected from supported retailer sources on scheduled runs.</li>
+                                <li>Raw listings are normalized (name, condition, finish, quantity, price).</li>
+                                <li>Cleaned records are upserted to Supabase/Postgres and search views are refreshed.</li>
+                                <li>Users search by card name plus ZIP/GPS and radius in the CardMap app.</li>
+                                <li>Search endpoints return filtered local results ranked by relevance and distance.</li>
+                                <li>The UI presents offers with store context through list, directory, and map views.</li>
                             </ul>
                             <div class="project-ui-chip-row" aria-label="CardMap technologies">
                                 <div class="project-ui-chip">React + Vite</div>
@@ -225,17 +228,17 @@
                         card inventory using ZIP or GPS-based search.
                     </p>
                     <p class="project-summary">
-                        The platform connects frontend search workflows to Supabase-backed functions and store data,
-                        then presents results through inventory views, a store directory, and map-based context.
+                        CardMap connects a full pipeline from inventory ingestion to location-aware search so players
+                        can find local card availability quickly and reliably.
                     </p>
                     <p class="project-summary">
                         CardMap inventory search is backed by a data pipeline that keeps listings normalized
                         and refreshed for local store discovery.
                     </p>
                     <ul class="project-highlights">
-                        <li>Implemented location-aware search flows with ZIP validation, GPS lookup, and radius filtering</li>
-                        <li>Built reliability patterns like caching and retry/backoff to keep search interactions responsive</li>
-                        <li>Integrated store directory and map experiences using Supabase RPCs and Postgres/PostGIS data</li>
+                        <li>Built an end-to-end workflow from inventory ingestion through searchable local results</li>
+                        <li>Implemented location-aware search using ZIP/GPS, radius filters, and relevance handling</li>
+                        <li>Delivered results across inventory, store-directory, and map-based browsing experiences</li>
                     </ul>
                     <ul class="tag-list project-tags">
                         <li>React</li>
