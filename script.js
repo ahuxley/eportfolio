@@ -101,26 +101,51 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        syncHashActiveLink();
+        const getActiveSectionFromScroll = () => {
+            if (window.scrollY <= 1) {
+                return null;
+            }
 
-        const sectionObserver = new IntersectionObserver((entries) => {
-            const visibleEntries = entries
-                .filter((entry) => entry.isIntersecting)
-                .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+            const lastSectionId = sectionLinks[sectionLinks.length - 1].section.id;
+            const nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+            if (nearBottom) {
+                return `#${lastSectionId}`;
+            }
 
-            if (!visibleEntries.length) {
+            const activationLine = window.scrollY + Math.min(window.innerHeight * 0.38, 320);
+            let activeId = null;
+
+            sectionLinks.forEach(({ section }) => {
+                if (section.offsetTop <= activationLine) {
+                    activeId = `#${section.id}`;
+                }
+            });
+
+            return activeId;
+        };
+
+        let syncFrame = null;
+        const scheduleScrollSync = () => {
+            if (syncFrame !== null) {
                 return;
             }
 
-            setActiveLink(`#${visibleEntries[0].target.id}`);
-        }, {
-            rootMargin: "-35% 0px -45% 0px",
-            threshold: [0.15, 0.3, 0.6]
+            syncFrame = window.requestAnimationFrame(() => {
+                syncFrame = null;
+                setActiveLink(getActiveSectionFromScroll());
+            });
+        };
+
+        syncHashActiveLink();
+        scheduleScrollSync();
+
+        window.addEventListener("scroll", scheduleScrollSync, { passive: true });
+        window.addEventListener("resize", scheduleScrollSync);
+        window.addEventListener("load", scheduleScrollSync);
+        window.addEventListener("hashchange", () => {
+            syncHashActiveLink();
+            scheduleScrollSync();
         });
-
-        sectionLinks.forEach(({ section }) => sectionObserver.observe(section));
-
-        window.addEventListener("hashchange", syncHashActiveLink);
     }
 
     const reveals = document.querySelectorAll("[data-reveal]");
