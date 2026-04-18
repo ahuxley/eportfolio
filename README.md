@@ -55,15 +55,18 @@ If that field is left empty, the site falls back to opening the visitor's defaul
 
 ## Deployment
 
-This repo currently publishes as a GitHub Pages project site at:
+This repo currently publishes as a root GitHub Pages site at:
 
-`https://ahuxley.github.io/eportfolio/`
+`https://ahuxley.github.io/`
+
+The project URL `https://ahuxley.github.io/eportfolio/` may still resolve, but the canonical/OG metadata
+is intentionally set to the root URL above.
 
 To publish:
 
 1. Push changes to `main`.
 2. In the GitHub repo settings, ensure GitHub Pages is configured to deploy from the `main` branch root.
-3. Confirm the canonical URL and social preview resolve correctly after deploy.
+3. Confirm canonical and social metadata resolve to `https://ahuxley.github.io/` after deploy.
 
 ## Private source repo workaround
 

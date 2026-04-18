@@ -11,14 +11,30 @@ permissions:
 
 jobs:
   deploy:
-    if: ${{ vars.PUBLIC_PAGES_REPO != '' && secrets.PUBLIC_PAGES_TOKEN != '' }}
     runs-on: ubuntu-latest
 
     steps:
+      - name: Guard mirror configuration
+        id: guard
+        shell: bash
+        env:
+          PUBLIC_PAGES_REPO: ${{ vars.PUBLIC_PAGES_REPO }}
+          PUBLIC_PAGES_TOKEN: ${{ secrets.PUBLIC_PAGES_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PUBLIC_PAGES_REPO:-}" ] || [ -z "${PUBLIC_PAGES_TOKEN:-}" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Public mirror not configured; skipping deploy."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout source repository
+        if: steps.guard.outputs.enabled == 'true'
         uses: actions/checkout@v4
 
       - name: Prepare static site payload
+        if: steps.guard.outputs.enabled == 'true'
         shell: bash
         env:
           PUBLIC_PAGES_REPO: ${{ vars.PUBLIC_PAGES_REPO }}
@@ -32,6 +48,7 @@ jobs:
 
           python - <<'PY'
           import os
+          import re
           from pathlib import Path
 
           repo = os.environ["PUBLIC_PAGES_REPO"].strip()
@@ -47,18 +64,17 @@ jobs:
 
           html_path = Path(".site-dist/index.html")
           html = html_path.read_text(encoding="utf-8")
-          replacements = {
-              "https://ahuxley.github.io/eportfolio/": site_url + "/",
-              "https://ahuxley.github.io/eportfolio/assets/social-preview.png": f"{site_url}/assets/social-preview.png",
-          }
-          for old, new in replacements.items():
-              html = html.replace(old, new)
+          html = re.sub(r'(<link rel="canonical" href=")[^"]+(")', rf'\1{site_url}/\2', html, count=1)
+          html = re.sub(r'(<meta property="og:url" content=")[^"]+(")', rf'\1{site_url}/\2', html, count=1)
+          html = re.sub(r'(<meta property="og:image" content=")[^"]+(")', rf'\1{site_url}/assets/social-preview.png\2', html, count=1)
+          html = re.sub(r'(<meta name="twitter:image" content=")[^"]+(")', rf'\1{site_url}/assets/social-preview.png\2', html, count=1)
 
           html_path.write_text(html, encoding="utf-8")
           print(f"Using deployment URL: {site_url}/")
           PY
 
       - name: Publish to public Pages repository
+        if: steps.guard.outputs.enabled == 'true'
         shell: bash
         env:
           PUBLIC_PAGES_REPO: ${{ vars.PUBLIC_PAGES_REPO }}
