@@ -4,6 +4,6 @@ This repository serves my personal portfolio at:
 
 `https://ahuxley.github.io/`
 
-Source project repo:
+Source repository:
 
-`https://github.com/ahuxley/eportfolio`
+`https://github.com/ahuxley/ahuxley.github.io`

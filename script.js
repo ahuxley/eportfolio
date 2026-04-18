@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 link.classList.toggle("is-active", isActive);
 
                 if (isActive) {
-                    link.setAttribute("aria-current", "page");
+                    link.setAttribute("aria-current", "location");
                 } else {
                     link.removeAttribute("aria-current");
                 }
@@ -224,8 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
     galleries.forEach((gallery) => {
         const slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
         const tabs = Array.from(gallery.querySelectorAll("[data-gallery-go]"));
-        const prev = gallery.querySelector("[data-gallery-prev]");
-        const next = gallery.querySelector("[data-gallery-next]");
 
         if (!slides.length || !tabs.length) {
             return;
@@ -277,14 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         });
-
-        if (prev) {
-            prev.addEventListener("click", () => updateGallery(activeIndex - 1));
-        }
-
-        if (next) {
-            next.addEventListener("click", () => updateGallery(activeIndex + 1));
-        }
 
         updateGallery(activeIndex);
     });
