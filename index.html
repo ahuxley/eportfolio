@@ -163,15 +163,19 @@
             </div>
 
             <article class="project-feature" data-reveal="up">
-                <div class="project-visual" aria-hidden="true">
+                <div class="project-visual">
                     <div class="project-screen">
                         <div class="project-screen-bar"></div>
-                        <div class="project-stage">
-                            <div class="fighter fighter-left"></div>
-                            <div class="fighter fighter-right"></div>
-                            <div class="project-ui-chip">2D Fighter</div>
-                            <div class="project-ui-chip">Custom Controller</div>
-                            <div class="project-ui-chip">Python Bridge</div>
+                        <div class="project-stage project-video-stage">
+                            <video class="project-demo-video" controls preload="metadata" playsinline>
+                                <source src="assets/demo-microfighter.mp4" type="video/mp4">
+                                Your browser does not support this video format.
+                            </video>
+                            <div class="project-ui-chip-row" aria-label="MicroFighter technologies">
+                                <div class="project-ui-chip">2D Fighter</div>
+                                <div class="project-ui-chip">Custom Controller</div>
+                                <div class="project-ui-chip">Python Bridge</div>
+                            </div>
                         </div>
                     </div>
                 </div>
