@@ -875,44 +875,6 @@ main {
     max-width: 68ch;
 }
 
-.project-links-label {
-    margin: 1rem 0 0;
-    color: var(--accent-strong);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-}
-
-.project-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    margin-top: 0.45rem;
-}
-
-.project-links a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.45rem 0.78rem;
-    border-radius: 999px;
-    border: 1px solid rgba(24, 40, 60, 0.16);
-    background: rgba(255, 255, 255, 0.78);
-    color: var(--ink);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.69rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.project-links a:hover,
-.project-links a:focus-visible {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(24, 40, 60, 0.28);
-}
-
 .project-highlights,
 .project-card-points,
 .experience-points,
