@@ -669,6 +669,38 @@ main {
     gap: 0.55rem;
 }
 
+.project-cardmap-stage {
+    min-height: auto;
+    align-content: start;
+    gap: 1rem;
+}
+
+.project-cardmap-kicker {
+    margin: 0;
+    color: #fff8f0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-cardmap-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.project-cardmap-steps li {
+    border: 1px solid rgba(255, 248, 240, 0.16);
+    background: rgba(255, 248, 240, 0.08);
+    border-radius: 14px;
+    padding: 0.7rem 0.8rem;
+    color: #fff8f0;
+    line-height: 1.45;
+}
+
 .project-console {
     width: 100%;
     min-height: 100%;
