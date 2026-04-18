@@ -2,7 +2,7 @@
 
 This is my personal portfolio website.
 
-Live site: `https://ahuxley.github.io/`
+Live site: `https://ahuxley.github.io/eportfolio/`
 
 ## Built with
 
@@ -33,4 +33,4 @@ Set endpoint in `index.html`:
 ## Notes
 
 - This portfolio is experience-first and intentionally lightweight.
-- The canonical URL is `https://ahuxley.github.io/`.
+- The canonical URL is `https://ahuxley.github.io/eportfolio/`.
