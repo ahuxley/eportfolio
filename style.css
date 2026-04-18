@@ -280,6 +280,10 @@ main {
     align-items: start;
 }
 
+.hero-about {
+    margin-top: 0.4rem;
+}
+
 .hero-copy h1,
 .section-heading h2,
 .project-feature h3,
