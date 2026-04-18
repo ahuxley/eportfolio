@@ -751,10 +751,8 @@ main {
 }
 
 .project-gallery-controls {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 0.8rem;
+    display: flex;
+    justify-content: center;
 }
 
 .project-gallery-arrow,
@@ -1141,11 +1139,7 @@ main {
     }
 
     .project-gallery-controls {
-        grid-template-columns: 1fr;
-    }
-
-    .project-gallery-arrow {
-        width: 100%;
+        justify-content: center;
     }
 }
 
