@@ -980,6 +980,15 @@ main {
     color: var(--teal);
 }
 
+.experience-period {
+    margin: -0.15rem 0 0.1rem;
+    color: var(--ink-muted);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .toolkit-card,
 .credential-card {
     background: rgba(255, 252, 247, 0.88);
