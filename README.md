@@ -1,2 +1,3 @@
 # ahuxley.github.io
-Root site redirect to /eportfolio/
+
+Root redirect for portfolio: https://ahuxley.github.io/eportfolio/
