@@ -638,6 +638,37 @@ main {
     box-shadow: 0 18px 34px rgba(0, 0, 0, 0.25);
 }
 
+.project-prototype-shot {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 248, 240, 0.18);
+    background: rgba(255, 248, 240, 0.06);
+}
+
+.project-prototype-link {
+    display: block;
+    background: #0a1018;
+}
+
+.project-prototype-shot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-prototype-shot figcaption {
+    margin: 0;
+    padding: 0.68rem 0.82rem 0.78rem;
+    border-top: 1px solid rgba(255, 248, 240, 0.12);
+    color: #fff8f0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, rgba(255, 248, 240, 0.06), rgba(255, 248, 240, 0.03));
+}
+
 .project-ui-chip-row {
     display: flex;
     flex-wrap: wrap;
