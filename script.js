@@ -314,7 +314,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageCharCount = document.getElementById("message-char-count");
     const messageMaxLength = Number(messageField?.getAttribute("maxlength") || 0);
     const defaultSubmitText = submitButton?.textContent || "Send Message";
+    const successSubmitText = "Message Sent";
     let isSubmitting = false;
+    let submitSuccessResetTimeout = null;
 
     const setFormStatus = (message, state = null) => {
         if (!formStatus) {
@@ -329,9 +331,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const resetContactSubmitUi = () => {
+        if (submitSuccessResetTimeout) {
+            window.clearTimeout(submitSuccessResetTimeout);
+            submitSuccessResetTimeout = null;
+        }
+
         if (submitButton) {
             submitButton.disabled = false;
             submitButton.textContent = defaultSubmitText;
+            submitButton.classList.remove("is-success");
         }
 
         setFormStatus("");
@@ -366,13 +374,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             isSubmitting = true;
+            if (submitSuccessResetTimeout) {
+                window.clearTimeout(submitSuccessResetTimeout);
+                submitSuccessResetTimeout = null;
+            }
 
             if (submitButton) {
+                submitButton.classList.remove("is-success");
                 submitButton.disabled = true;
                 submitButton.textContent = "Sending...";
             }
 
             setFormStatus("Sending your message...");
+            let wasSuccess = false;
 
             try {
                 const response = await fetch(contactForm.action, {
@@ -384,9 +398,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 if (response.ok) {
+                    wasSuccess = true;
                     contactForm.reset();
                     updateMessageCharCount();
                     setFormStatus("Thanks! Your message was sent successfully.", "success");
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = successSubmitText;
+                        submitButton.classList.add("is-success");
+                    }
+
+                    submitSuccessResetTimeout = window.setTimeout(() => {
+                        submitSuccessResetTimeout = null;
+
+                        if (!submitButton || isSubmitting) {
+                            return;
+                        }
+
+                        submitButton.textContent = defaultSubmitText;
+                        submitButton.classList.remove("is-success");
+                    }, 3000);
                 } else {
                     let errorMessage = "Something went wrong. Please try again or message me on LinkedIn.";
 
@@ -405,9 +436,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 setFormStatus("Network issue. Please try again in a moment.", "error");
             } finally {
                 isSubmitting = false;
-                if (submitButton) {
+                if (!wasSuccess && submitButton) {
                     submitButton.disabled = false;
                     submitButton.textContent = defaultSubmitText;
+                    submitButton.classList.remove("is-success");
                 }
             }
         });

@@ -1020,15 +1020,6 @@ main {
     min-width: 13rem;
 }
 
-.contact-response-note {
-    margin: 0.65rem 0 0;
-    color: var(--ink-muted);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.74rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
 .contact-quick-facts {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1338,6 +1329,13 @@ main {
 
 .contact-submit-button {
     margin-top: 0.5rem;
+}
+
+.contact-submit-button.is-success {
+    --btn-bg: linear-gradient(135deg, #126a53 0%, #0f5946 100%);
+    --btn-bg-hover: linear-gradient(135deg, #15755b 0%, #126a53 100%);
+    --btn-border: rgba(255, 255, 255, 0.2);
+    --btn-shadow: 0 10px 24px rgba(15, 89, 70, 0.24);
 }
 
 .contact-submit-button[disabled] {
