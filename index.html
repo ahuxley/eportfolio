@@ -647,6 +647,26 @@
                         </div>
                     </dl>
                 </article>
+
+                <article class="contact-card contact-form-card" data-reveal="up">
+                    <p class="contact-label">Direct Message</p>
+                    <h3>Send me a message.</h3>
+                    <form action="https://formspree.io/f/mnjlzqlj" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required rows="4" placeholder="Hi Andrew, I have an opportunity..."></textarea>
+                        </div>
+                        <button type="submit" class="button button-primary" style="margin-top: 0.5rem;">Send Message</button>
+                    </form>
+                </article>
             </div>
         </section>
     </main>
