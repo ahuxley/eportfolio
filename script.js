@@ -314,6 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageField = document.getElementById("message");
     const messageCharCount = document.getElementById("message-char-count");
     const messageMaxLength = Number(messageField?.getAttribute("maxlength") || 0);
+    const defaultSubmitText = submitButton?.textContent || "Send Message";
 
     const setFormStatus = (message, state = null) => {
         if (!formStatus) {
@@ -327,6 +328,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    const resetContactSubmitUi = () => {
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = defaultSubmitText;
+        }
+
+        setFormStatus("");
+    };
+
     if (contactNextField) {
         const successReturnUrl = new URL(window.location.href);
         successReturnUrl.searchParams.set("contact", "success");
@@ -337,10 +347,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const query = new URLSearchParams(window.location.search);
     if (query.get("contact") === "success") {
         setFormStatus("Thanks! Your message was sent successfully.", "success");
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = defaultSubmitText;
+        }
         query.delete("contact");
         const cleanSearch = query.toString();
         const cleanUrl = `${window.location.pathname}${cleanSearch ? `?${cleanSearch}` : ""}${window.location.hash}`;
         window.history.replaceState({}, "", cleanUrl);
+    } else {
+        resetContactSubmitUi();
     }
 
     const updateMessageCharCount = () => {
@@ -369,6 +385,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitButton.textContent = "Continuing...";
             }
             setFormStatus("Continuing to security check...");
+        });
+
+        window.addEventListener("pageshow", (event) => {
+            const hasSuccessQuery = new URLSearchParams(window.location.search).get("contact") === "success";
+            if (hasSuccessQuery) {
+                return;
+            }
+
+            if (event.persisted || submitButton?.disabled) {
+                resetContactSubmitUi();
+            }
         });
     }
 
