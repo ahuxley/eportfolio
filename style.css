@@ -447,12 +447,22 @@ main {
     margin-top: 2rem;
 }
 
-.contact-grid {
+.contact-unified-card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    padding: 3.5rem;
+    align-items: start;
     margin-top: 2rem;
-    max-width: 64rem;
+    max-width: 68rem;
+}
+
+@media (max-width: 860px) {
+    .contact-unified-card {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
 }
 
 .story-card {
@@ -1222,11 +1232,6 @@ main {
     transform: translateX(4px);
 }
 
-.contact-form-card {
-    padding: 2.2rem;
-    display: flex;
-    flex-direction: column;
-}
 .contact-form {
     display: flex;
     flex-direction: column;
