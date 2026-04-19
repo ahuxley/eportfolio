@@ -17,7 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
             return { link, section };
         })
         .filter(Boolean);
+    let sectionOffsets = [];
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function recalculateSectionOffsets() {
+        sectionOffsets = sectionLinks.map(({ section }) => ({
+            id: section.id,
+            top: Math.round(section.getBoundingClientRect().top + window.scrollY)
+        }));
+    }
 
     function closeMenu() {
         if (!menuBtn || !navLinks) {
@@ -106,7 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return null;
             }
 
-            const lastSectionId = sectionLinks[sectionLinks.length - 1].section.id;
+            if (!sectionOffsets.length) {
+                recalculateSectionOffsets();
+            }
+
+            const lastSectionId = sectionOffsets[sectionOffsets.length - 1].id;
             const nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
             if (nearBottom) {
                 return `#${lastSectionId}`;
@@ -115,9 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const activationLine = window.scrollY + Math.min(window.innerHeight * 0.38, 320);
             let activeId = null;
 
-            sectionLinks.forEach(({ section }) => {
-                if (section.offsetTop <= activationLine) {
-                    activeId = `#${section.id}`;
+            sectionOffsets.forEach(({ id, top }) => {
+                if (top <= activationLine) {
+                    activeId = `#${id}`;
                 }
             });
 
@@ -136,12 +148,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
+        const refreshOffsetsAndSync = () => {
+            recalculateSectionOffsets();
+            scheduleScrollSync();
+        };
+
+        recalculateSectionOffsets();
         syncHashActiveLink();
         scheduleScrollSync();
 
         window.addEventListener("scroll", scheduleScrollSync, { passive: true });
-        window.addEventListener("resize", scheduleScrollSync);
-        window.addEventListener("load", scheduleScrollSync);
+        window.addEventListener("resize", refreshOffsetsAndSync);
+        window.addEventListener("load", refreshOffsetsAndSync);
+        if (document.fonts?.ready) {
+            document.fonts.ready.then(refreshOffsetsAndSync).catch(() => {
+                // Ignore font readiness failures and continue.
+            });
+        }
         window.addEventListener("hashchange", () => {
             syncHashActiveLink();
             scheduleScrollSync();
@@ -282,6 +305,64 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentYear = document.getElementById("current-year");
     if (currentYear) {
         currentYear.textContent = String(new Date().getFullYear());
+    }
+
+    const contactForm = document.getElementById("contact-form");
+    const formStatus = document.getElementById("form-status");
+    const submitButton = document.getElementById("contact-submit-button");
+    const defaultSubmitText = submitButton?.textContent || "Send Message";
+
+    const setFormStatus = (message, state = null) => {
+        if (!formStatus) {
+            return;
+        }
+
+        formStatus.textContent = message;
+        formStatus.classList.remove("is-success", "is-error");
+        if (state) {
+            formStatus.classList.add(`is-${state}`);
+        }
+    };
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            if (!contactForm.reportValidity()) {
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = "Sending...";
+            }
+            setFormStatus("Sending message...");
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: "POST",
+                    body: new FormData(contactForm),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Form submission failed: ${response.status}`);
+                }
+
+                contactForm.reset();
+                setFormStatus("Message sent. Thanks for reaching out.", "success");
+            } catch (error) {
+                console.error(error);
+                setFormStatus("Message failed. Please try again or message me on LinkedIn.", "error");
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = defaultSubmitText;
+                }
+            }
+        });
     }
 
 });

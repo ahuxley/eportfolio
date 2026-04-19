@@ -440,6 +440,10 @@ main {
     margin-top: 1.25rem;
 }
 
+.hero-actions {
+    margin-top: 1.1rem;
+}
+
 .about-grid {
     display: grid;
     grid-template-columns: 1.08fr 0.92fr;
@@ -572,6 +576,11 @@ main {
 .project-prototype-link {
     display: block;
     background: #0a1018;
+}
+
+.project-prototype-link picture,
+.project-console-link picture {
+    display: block;
 }
 
 .project-prototype-shot img {
@@ -979,11 +988,28 @@ main {
     margin-top: 0.35rem;
 }
 
+.contact-channel-actions {
+    margin-top: 1rem;
+}
+
+.contact-linkedin-button {
+    min-width: 13rem;
+}
+
+.contact-response-note {
+    margin: 0.65rem 0 0;
+    color: var(--ink-muted);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .contact-quick-facts {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.8rem;
-    margin: 0.5rem 0 0;
+    margin: 1.3rem 0 0;
 }
 
 .contact-fact {
@@ -1265,4 +1291,32 @@ main {
     background: #fff;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(0, 191, 165, 0.15);
+}
+
+.contact-submit-button {
+    margin-top: 0.5rem;
+}
+
+.contact-submit-button[disabled] {
+    cursor: progress;
+    opacity: 0.8;
+    transform: none;
+}
+
+.form-status {
+    min-height: 1.4rem;
+    margin: 0.1rem 0 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+}
+
+.form-status.is-success {
+    color: var(--teal);
+}
+
+.form-status.is-error {
+    color: var(--accent-strong);
 }

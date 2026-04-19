@@ -1,18 +1,32 @@
 :root {
   /* Core palette */
-  --color-bg: #0a0e1a;
-  --color-bg-alt: #151a28;
+  --color-bg: #fbf8f3;
+  --color-bg-alt: #f0e8dc;
   --color-surface: rgba(255, 255, 255, 0.92);
   --color-surface-strong: #fffdf9;
   --color-surface-muted: #f2ebe1;
-  --color-ink: #e0e8f0;
-  --color-ink-soft: #b0c4d9;
-  --color-ink-muted: #748497;
-  --color-accent: #00bfa5; /* teal accent */
-  --color-accent-strong: #009688;
+  --color-ink: #18283c;
+  --color-ink-soft: #3f4d61;
+  --color-ink-muted: #66758a;
+  --color-accent: #2f6f6b;
+  --color-accent-strong: #245854;
   --color-accent-soft: #e0f2f1;
-  --color-primary: #00bfa5;
-  --color-primary-dark: #009688;
+  --color-primary: #2f6f6b;
+  --color-primary-dark: #245854;
+
+  /* Backward-compatible aliases used by the main stylesheet */
+  --page-bg: #f5f0e7;
+  --page-bg-alt: #ece3d6;
+  --surface: var(--color-surface);
+  --ink: var(--color-ink);
+  --ink-soft: var(--color-ink-soft);
+  --ink-muted: var(--color-ink-muted);
+  --line: rgba(24, 40, 60, 0.14);
+  --line-strong: rgba(24, 40, 60, 0.24);
+  --accent: #a25d3f;
+  --accent-strong: #7d3f24;
+  --teal: var(--color-primary);
+
   --radius-xl: 24px;
   --radius-lg: 18px;
   --radius-md: 14px;
@@ -24,19 +38,4 @@
   --shadow-lg: 0 28px 72px rgba(0,0,0,0.1);
 }
 
-/* Focus outline */
-:focus-visible {
-  outline: 3px solid rgba(0,191,165,0.28);
-  outline-offset: 4px;
-}
-
-/* Button primary uses primary color */
-.button-primary {
-  background: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-}
-.button-primary:hover,
-.button-primary:focus-visible {
-  background: var(--color-primary-dark);
-}
+/* Design tokens only. Component styling stays in style.css. */
