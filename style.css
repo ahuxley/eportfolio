@@ -1307,6 +1307,16 @@ main {
     font-size: 0.95rem;
     color: var(--ink);
 }
+
+.field-meta {
+    margin: 0.1rem 0 0;
+    color: var(--ink-muted);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
 .form-group input,
 .form-group textarea {
     padding: 0.85rem;

@@ -310,7 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contact-form");
     const formStatus = document.getElementById("form-status");
     const submitButton = document.getElementById("contact-submit-button");
-    const defaultSubmitText = submitButton?.textContent || "Send Message";
+    const messageField = document.getElementById("message");
+    const messageCharCount = document.getElementById("message-char-count");
+    const messageMaxLength = Number(messageField?.getAttribute("maxlength") || 0);
 
     const setFormStatus = (message, state = null) => {
         if (!formStatus) {
@@ -324,44 +326,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    if (contactForm) {
-        contactForm.addEventListener("submit", async (event) => {
-            event.preventDefault();
+    const updateMessageCharCount = () => {
+        if (!messageField || !messageCharCount || !messageMaxLength) {
+            return;
+        }
 
+        const currentLength = messageField.value.length;
+        messageCharCount.textContent = `${currentLength} / ${messageMaxLength} characters`;
+    };
+
+    if (messageField && messageCharCount && messageMaxLength) {
+        updateMessageCharCount();
+        messageField.addEventListener("input", updateMessageCharCount);
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", (event) => {
             if (!contactForm.reportValidity()) {
+                event.preventDefault();
                 return;
             }
 
             if (submitButton) {
                 submitButton.disabled = true;
-                submitButton.textContent = "Sending...";
+                submitButton.textContent = "Continuing...";
             }
-            setFormStatus("Sending message...");
-
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: "POST",
-                    body: new FormData(contactForm),
-                    headers: {
-                        Accept: "application/json"
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Form submission failed: ${response.status}`);
-                }
-
-                contactForm.reset();
-                setFormStatus("Message sent. Thanks for reaching out.", "success");
-            } catch (error) {
-                console.error(error);
-                setFormStatus("Message failed. Please try again or message me on LinkedIn.", "error");
-            } finally {
-                if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = defaultSubmitText;
-                }
-            }
+            setFormStatus("Continuing to security check...");
         });
     }
 
