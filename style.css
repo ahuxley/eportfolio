@@ -1,28 +1,8 @@
-:root {
-    --page-bg: #f5f1ea;
-    --page-bg-alt: #f8f4ee;
-    --surface: rgba(255, 255, 255, 0.92);
-    --surface-strong: #fffdf9;
-    --surface-muted: #f2ebe1;
-    --ink: #18283c;
-    --ink-soft: #42576d;
-    --ink-muted: #748497;
-    --line: rgba(24, 40, 60, 0.12);
-    --line-strong: rgba(24, 40, 60, 0.2);
-    --accent: #a25d3f;
-    --accent-strong: #87492e;
-    --accent-soft: #ead6ca;
-    --teal: #2f6f6b;
-    --shadow-sm: 0 10px 24px rgba(24, 40, 60, 0.06);
-    --shadow-md: 0 18px 44px rgba(24, 40, 60, 0.08);
-    --shadow-lg: 0 28px 72px rgba(24, 40, 60, 0.1);
-    --radius-xl: 24px;
-    --radius-lg: 18px;
-    --radius-md: 14px;
-    --radius-sm: 10px;
-    --content-max: 1180px;
-    --nav-height: 4.75rem;
-}
+@import "./design-tokens.css";
+
+/* Retain any custom variables not covered by design tokens */
+/* Existing custom variables can be redefined here if needed */
+
 
 *,
 *::before,
@@ -1220,4 +1200,24 @@ main {
         opacity: 1;
         transform: none;
     }
+}
+
+.credential-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.credential-link:hover,
+.credential-link:focus-visible {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    transform: translateX(4px);
 }
