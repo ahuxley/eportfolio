@@ -326,15 +326,30 @@ main {
 }
 
 .button {
+    --btn-bg: transparent;
+    --btn-bg-hover: transparent;
+    --btn-border: transparent;
+    --btn-text: var(--ink);
+    --btn-shadow: none;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 3rem;
-    padding: 0.9rem 1.2rem;
+    gap: 0.45rem;
+    min-height: 3.05rem;
+    padding: 0.85rem 1.2rem;
     border-radius: 999px;
-    border: 1px solid transparent;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: var(--btn-shadow);
     text-decoration: none;
+    font-family: "Sora", sans-serif;
+    font-size: 0.95rem;
     font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
 }
@@ -342,34 +357,43 @@ main {
 .button:hover,
 .button:focus-visible {
     transform: translateY(-1px);
+    background: var(--btn-bg-hover);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button[disabled],
+.button[aria-disabled="true"] {
+    opacity: 0.72;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .button-primary {
-    background: var(--ink);
-    color: #fff;
-    box-shadow: 0 12px 28px rgba(24, 40, 60, 0.18);
-}
-
-.button-primary:hover,
-.button-primary:focus-visible {
-    background: #122033;
+    --btn-bg: linear-gradient(135deg, #1b2f49 0%, #15263c 100%);
+    --btn-bg-hover: linear-gradient(135deg, #223651 0%, #1b2f49 100%);
+    --btn-border: rgba(255, 255, 255, 0.16);
+    --btn-text: #fff;
+    --btn-shadow: 0 10px 24px rgba(24, 40, 60, 0.22);
 }
 
 .button-secondary {
-    background: rgba(255, 255, 255, 0.72);
-    border-color: var(--line);
-    color: var(--ink);
-}
-
-.button-secondary:hover,
-.button-secondary:focus-visible {
-    background: rgba(255, 255, 255, 0.96);
+    --btn-bg: rgba(255, 255, 255, 0.84);
+    --btn-bg-hover: rgba(255, 255, 255, 0.98);
+    --btn-border: rgba(24, 40, 60, 0.16);
+    --btn-text: var(--ink);
+    --btn-shadow: 0 6px 16px rgba(24, 40, 60, 0.08);
 }
 
 .button-tertiary {
-    background: transparent;
-    border-color: rgba(162, 93, 63, 0.18);
-    color: var(--accent-strong);
+    --btn-bg: rgba(162, 93, 63, 0.08);
+    --btn-bg-hover: rgba(162, 93, 63, 0.14);
+    --btn-border: rgba(162, 93, 63, 0.32);
+    --btn-text: var(--accent-strong);
+    --btn-shadow: 0 6px 16px rgba(125, 63, 36, 0.1);
 }
 
 .tag-list li {
@@ -1239,23 +1263,32 @@ main {
 }
 
 .credential-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary);
+    min-height: 2.55rem;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(24, 40, 60, 0.16);
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 6px 16px rgba(24, 40, 60, 0.08);
+    color: var(--ink);
+    font-family: "Sora", sans-serif;
+    font-size: 0.88rem;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease, transform 0.2s ease;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .credential-link:hover,
 .credential-link:focus-visible {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
-    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(24, 40, 60, 0.24);
+    color: var(--ink);
+    transform: translateY(-1px);
 }
 
 .contact-form {
