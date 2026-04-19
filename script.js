@@ -308,13 +308,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const contactForm = document.getElementById("contact-form");
-    const contactNextField = document.getElementById("contact-next");
     const formStatus = document.getElementById("form-status");
     const submitButton = document.getElementById("contact-submit-button");
     const messageField = document.getElementById("message");
     const messageCharCount = document.getElementById("message-char-count");
     const messageMaxLength = Number(messageField?.getAttribute("maxlength") || 0);
     const defaultSubmitText = submitButton?.textContent || "Send Message";
+    let isSubmitting = false;
 
     const setFormStatus = (message, state = null) => {
         if (!formStatus) {
@@ -337,27 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setFormStatus("");
     };
 
-    if (contactNextField) {
-        const successReturnUrl = new URL(window.location.href);
-        successReturnUrl.searchParams.set("contact", "success");
-        successReturnUrl.hash = "contact";
-        contactNextField.value = successReturnUrl.toString();
-    }
-
-    const query = new URLSearchParams(window.location.search);
-    if (query.get("contact") === "success") {
-        setFormStatus("Thanks! Your message was sent successfully.", "success");
-        if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = defaultSubmitText;
-        }
-        query.delete("contact");
-        const cleanSearch = query.toString();
-        const cleanUrl = `${window.location.pathname}${cleanSearch ? `?${cleanSearch}` : ""}${window.location.hash}`;
-        window.history.replaceState({}, "", cleanUrl);
-    } else {
-        resetContactSubmitUi();
-    }
+    resetContactSubmitUi();
 
     const updateMessageCharCount = () => {
         if (!messageField || !messageCharCount || !messageMaxLength) {
@@ -374,33 +354,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (contactForm) {
-        contactForm.addEventListener("submit", (event) => {
+        contactForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
             if (!contactForm.reportValidity()) {
-                event.preventDefault();
                 return;
             }
 
+            if (isSubmitting) {
+                return;
+            }
+
+            isSubmitting = true;
+
             if (submitButton) {
                 submitButton.disabled = true;
-                submitButton.textContent = "Opening...";
+                submitButton.textContent = "Sending...";
             }
-            setFormStatus("Opening security check in a new tab...");
 
-            window.setTimeout(() => {
+            setFormStatus("Sending your message...");
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: new FormData(contactForm),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                });
+
+                if (response.ok) {
+                    contactForm.reset();
+                    updateMessageCharCount();
+                    setFormStatus("Thanks! Your message was sent successfully.", "success");
+                } else {
+                    let errorMessage = "Something went wrong. Please try again or message me on LinkedIn.";
+
+                    try {
+                        const data = await response.json();
+                        if (Array.isArray(data.errors) && data.errors[0]?.message) {
+                            errorMessage = data.errors[0].message;
+                        }
+                    } catch {
+                        // Keep the default fallback error message when payload is unavailable.
+                    }
+
+                    setFormStatus(errorMessage, "error");
+                }
+            } catch {
+                setFormStatus("Network issue. Please try again in a moment.", "error");
+            } finally {
+                isSubmitting = false;
                 if (submitButton) {
                     submitButton.disabled = false;
                     submitButton.textContent = defaultSubmitText;
                 }
-                setFormStatus("Complete the security check in the new tab, then return here.");
-            }, 800);
+            }
         });
 
         window.addEventListener("pageshow", (event) => {
-            const hasSuccessQuery = new URLSearchParams(window.location.search).get("contact") === "success";
-            if (hasSuccessQuery) {
-                return;
-            }
-
             if (event.persisted || submitButton?.disabled) {
                 resetContactSubmitUi();
             }
