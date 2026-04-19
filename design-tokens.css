@@ -1,0 +1,42 @@
+:root {
+  /* Core palette */
+  --color-bg: #0a0e1a;
+  --color-bg-alt: #151a28;
+  --color-surface: rgba(255, 255, 255, 0.92);
+  --color-surface-strong: #fffdf9;
+  --color-surface-muted: #f2ebe1;
+  --color-ink: #e0e8f0;
+  --color-ink-soft: #b0c4d9;
+  --color-ink-muted: #748497;
+  --color-accent: #00bfa5; /* teal accent */
+  --color-accent-strong: #009688;
+  --color-accent-soft: #e0f2f1;
+  --color-primary: #00bfa5;
+  --color-primary-dark: #009688;
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --content-max: 1180px;
+  --nav-height: 4.75rem;
+  --shadow-sm: 0 10px 24px rgba(0,0,0,0.06);
+  --shadow-md: 0 18px 44px rgba(0,0,0,0.08);
+  --shadow-lg: 0 28px 72px rgba(0,0,0,0.1);
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 3px solid rgba(0,191,165,0.28);
+  outline-offset: 4px;
+}
+
+/* Button primary uses primary color */
+.button-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+.button-primary:hover,
+.button-primary:focus-visible {
+  background: var(--color-primary-dark);
+}
