@@ -382,9 +382,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (submitButton) {
                 submitButton.disabled = true;
-                submitButton.textContent = "Continuing...";
+                submitButton.textContent = "Opening...";
             }
-            setFormStatus("Continuing to security check...");
+            setFormStatus("Opening security check in a new tab...");
+
+            window.setTimeout(() => {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = defaultSubmitText;
+                }
+                setFormStatus("Complete the security check in the new tab, then return here.");
+            }, 800);
         });
 
         window.addEventListener("pageshow", (event) => {
