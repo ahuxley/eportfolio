@@ -308,6 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const contactForm = document.getElementById("contact-form");
+    const contactNextField = document.getElementById("contact-next");
     const formStatus = document.getElementById("form-status");
     const submitButton = document.getElementById("contact-submit-button");
     const messageField = document.getElementById("message");
@@ -325,6 +326,22 @@ document.addEventListener("DOMContentLoaded", () => {
             formStatus.classList.add(`is-${state}`);
         }
     };
+
+    if (contactNextField) {
+        const successReturnUrl = new URL(window.location.href);
+        successReturnUrl.searchParams.set("contact", "success");
+        successReturnUrl.hash = "contact";
+        contactNextField.value = successReturnUrl.toString();
+    }
+
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("contact") === "success") {
+        setFormStatus("Thanks! Your message was sent successfully.", "success");
+        query.delete("contact");
+        const cleanSearch = query.toString();
+        const cleanUrl = `${window.location.pathname}${cleanSearch ? `?${cleanSearch}` : ""}${window.location.hash}`;
+        window.history.replaceState({}, "", cleanUrl);
+    }
 
     const updateMessageCharCount = () => {
         if (!messageField || !messageCharCount || !messageMaxLength) {
